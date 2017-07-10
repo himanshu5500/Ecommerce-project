@@ -59,7 +59,7 @@
 							<td>${supplier.sup_id}</td><td>${supplier.sup_name}</td><td>${supplier.sup_address}</td>
 							<td>
 								<a href="<c:url value="updateSupplier/${supplier.sup_id}"/>" id="update" class="btn btn-success tt">Update</a>
-							</td><td><a href="<c:url value="deleteSupplier?supId=${supplier.sup_id}"/>" class="btn btn-danger tt">Delete</a>
+							<a href="<c:url value="deleteSupplier?supId=${supplier.sup_id}"/>" class="btn btn-danger tt">Delete</a>
 							</td>
 						</tr>
 					</c:forEach>

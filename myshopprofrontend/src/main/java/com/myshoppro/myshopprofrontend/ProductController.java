@@ -97,7 +97,8 @@ public class ProductController {
 	@RequestMapping("/viewProducts")
 	public ModelAndView viewAllProduct(@RequestParam("id") int catId){
 		ModelAndView m=new ModelAndView("ViewProducts");
-		List<Product> pro_list=productDAO.getProductCatWise(catId);
+		Category category=categoryDAO.getCategory(catId);
+		List<Product> pro_list=productDAO.getProductCatWise(category);
 		m.addObject("proDetails",pro_list);
 		return m;	
 	}
@@ -106,8 +107,6 @@ public class ProductController {
 	public ModelAndView productDetails(@RequestParam("proid") int proId){
 		ModelAndView m=new ModelAndView("ProductDetails");
 		Product product=productDAO.getProduct(proId);
-		Supplier supplier=supplierDAO.getSupplier(product.getSup_id());
-		m.addObject("supplier",supplier.getSup_name());
 		m.addObject("product",product);
 		return m;	
 	}

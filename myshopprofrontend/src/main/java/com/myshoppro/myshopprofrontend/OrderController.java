@@ -14,8 +14,10 @@ import org.springframework.web.servlet.ModelAndView;
 import com.myshoppro.myshopprobackend.dao.CartDAO;
 import com.myshoppro.myshopprobackend.dao.CategoryDAO;
 import com.myshoppro.myshopprobackend.dao.ProductDAO;
+import com.myshoppro.myshopprobackend.dao.UserDetailsDAO;
 import com.myshoppro.myshopprobackend.model.Cart;
 import com.myshoppro.myshopprobackend.model.Category;
+import com.myshoppro.myshopprobackend.model.UserDetails;
 
 @Controller
 public class OrderController {
@@ -25,12 +27,21 @@ public class OrderController {
 	CartDAO cartDAO;
 	@Autowired
 	CategoryDAO categoryDAO;
+	@Autowired
+	UserDetailsDAO userDetailsDAO;
 	
 	@RequestMapping("/checkOut")
 	public ModelAndView showCart(HttpSession session){
 		ModelAndView m=new ModelAndView("OrderConfirm");
 		String username=(String)session.getAttribute("username");
 		List<Cart> cart_list=cartDAO.getCartItems(username);
+		UserDetails userDetails=userDetailsDAO.getUserDetails(username);
+		int totalAmount=0;
+		for(Cart cart:cart_list){
+			totalAmount+=cart.getQuantity()*cart.getPrice();
+		}
+		m.addObject("totalAmount",totalAmount);
+		m.addObject("user",userDetails);
 		m.addObject("cartItems", cart_list);
 		return m;
 	}

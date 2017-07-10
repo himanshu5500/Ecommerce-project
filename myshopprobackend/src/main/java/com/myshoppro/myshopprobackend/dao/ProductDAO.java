@@ -7,6 +7,8 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.myshoppro.myshopprobackend.model.Category;
 import com.myshoppro.myshopprobackend.model.Product;
 
 @Repository("productDAO")
@@ -40,11 +42,11 @@ public class ProductDAO {
 			return list;
 		}
 		
-		public List<Product> getProductCatWise(int catId)
+		public List<Product> getProductCatWise(Category category)
 		{
 			Session session=sessionFactory.openSession();
-			Query query=session.createQuery("from Product where cat_id=:catid");
-			query.setParameter("catid", catId);
+			Query query=session.createQuery("from Product where category=:category");
+			query.setParameter("category", category);
 			List<Product> list=query.list();
 			session.close();
 			return list;

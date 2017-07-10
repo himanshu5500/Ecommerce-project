@@ -29,9 +29,9 @@ public class PageController {
 		m.addObject("homeProducts",list);
 		return m;
 	}
-	@RequestMapping("Test")
+	@RequestMapping("aboutUs")
 	public String Test(){
-		return "Category1";
+		return "AboutUs";
 	}
 	@ModelAttribute
 	public void homeCatDetails(Model m){

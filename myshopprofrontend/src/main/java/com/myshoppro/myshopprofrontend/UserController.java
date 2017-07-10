@@ -55,7 +55,7 @@ public class UserController {
 				else
 					session.setAttribute("user","user");
 				}
-			return "index";
+			return "redirect:index";
 		}
 	
 	@RequestMapping("/admin**")
@@ -81,6 +81,7 @@ public class UserController {
 		userDetails.setEmail(user.get("email"));
 		userDetails.setUsername(user.get("username"));
 		userDetails.setPassword(user.get("password"));
+		userDetails.setMobile(Integer.parseInt(user.get("mobile")));
 		userDetails.setEnabled(true);
 		userDetails.setRole("ROLE_USER");
 		userDetailsDAO.insertOrUpdateUserDetails(userDetails);
@@ -112,6 +113,24 @@ public class UserController {
 		else{
 			m.addObject("info","Error while changing password");	
 		}
+		m.addObject("user",userDetails);
+		return m;
+	}
+	@RequestMapping(value="/updateUser",method=RequestMethod.POST)
+	public ModelAndView updateUser(@RequestParam Map<String,String> user,HttpSession session)
+	{	ModelAndView m=new ModelAndView("MyAccount");
+		String username=(String)session.getAttribute("username");
+		UserDetails userDetails=userDetailsDAO.getUserDetails(username);
+		if(user.get("full_name")!=null)
+		userDetails.setFull_name(user.get("full_name"));
+		if(user.get("address")!=null)
+		userDetails.setAddress(user.get("address"));
+		if(user.get("email")!=null)
+		userDetails.setEmail(user.get("email"));
+		if(user.get("mobile")!=null)
+		userDetails.setMobile(Integer.parseInt(user.get("mobile")));	
+		userDetailsDAO.insertOrUpdateUserDetails(userDetails);
+		userDetails=userDetailsDAO.getUserDetails(username);	
 		m.addObject("user",userDetails);
 		return m;
 	}

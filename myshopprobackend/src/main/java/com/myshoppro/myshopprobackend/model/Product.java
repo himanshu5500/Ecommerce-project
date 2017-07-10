@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -17,28 +18,32 @@ public class Product {
 	private String pro_name;
 	@Lob
 	private String pro_desc;
-	private int cat_id,sup_id,pro_quantity,pro_price;
+	private int pro_quantity,pro_price;
+	@ManyToOne
+	private Supplier supplier;
+	@ManyToOne
+	private Category category;
 	
 	@Transient
 	private MultipartFile pro_image;
 	
+	public Supplier getSupplier() {
+		return supplier;
+	}
+	public void setSupplier(Supplier supplier) {
+		this.supplier = supplier;
+	}
+	public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
+	}
 	public MultipartFile getPro_image() {
 		return pro_image;
 	}
 	public void setPro_image(MultipartFile pro_image) {
 		this.pro_image = pro_image;
-	}
-	public int getCat_id() {
-		return cat_id;
-	}
-	public void setCat_id(int cat_id) {
-		this.cat_id = cat_id;
-	}
-	public int getSup_id() {
-		return sup_id;
-	}
-	public void setSup_id(int sup_id) {
-		this.sup_id = sup_id;
 	}
 	public int getPro_id() {
 		return pro_id;

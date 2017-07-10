@@ -11,7 +11,15 @@ public class UserDetails {
 	private String full_name,password,role,email;
 	@Lob
 	private String address;
+	private int mobile;
 	private boolean enabled;
+	
+	public int getMobile() {
+		return mobile;
+	}
+	public void setMobile(int mobile) {
+		this.mobile = mobile;
+	}
 	public String getFull_name() {
 		return full_name;
 	}

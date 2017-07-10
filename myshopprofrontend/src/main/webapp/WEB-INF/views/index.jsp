@@ -67,7 +67,7 @@ box-shadow:0 0 10px grey;}
         <img src='<c:url value="/resources/images/${homeProduct.product.pro_id}"/>.jpg' alt="${homeProduct.product.pro_name}" style="height:60%;"/>
         <div class="caption">
           <center><h4><b>${homeProduct.product.pro_name}</b></h4></center>
-          <span style="bottom:2em;position:absolute;"><h4><span class="glyphicon glyphicon-usd"></span>${homeProduct.product.pro_price}</h4>
+          <span style="bottom:2em;position:absolute;"><h4><i class="fa fa-inr"></i>${homeProduct.product.pro_price}</h4>
           <h5>Cash on Delivery eligible</h5></span>
         </div>
       </a>

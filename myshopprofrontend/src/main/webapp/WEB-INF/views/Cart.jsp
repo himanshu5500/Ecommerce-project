@@ -20,7 +20,7 @@
 <img src='<c:url value="/resources/images/${cartItem.prod_id}"/>.jpg' alt="${cartItem.prod_name}" style="height:100%;"/>
 </div></td><td>
 	<h2>${cartItem.prod_name}</h2>
-	<h2><span class="glyphicon glyphicon-usd"></span><b>${cartItem.price}</b></h2> 
+	<h2><i class="fa fa-inr"></i><b>${cartItem.price}</b></h2> 
     </td></tr>
     <tr><td>
     <div class="row">

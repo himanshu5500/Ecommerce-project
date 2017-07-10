@@ -31,6 +31,7 @@ public class UserDetailsTestCase {
 				userDetails.setEmail("himanshu@myshoppro.com");
 				userDetails.setPassword("asdfg");
 				userDetails.setAddress("delhi");
+				userDetails.setMobile(1234567890);
 				userDetails.setRole("ROLE_ADMIN");
 				userDetails.setEnabled(true);
 				userDetailsDAO.insertOrUpdateUserDetails(userDetails);		

@@ -30,7 +30,7 @@
 <div class="form-group">
 <label class="control-label col-sm-5 tt" for="catName">Category</label>
 <div class="col-sm-7">
-<form:select path="cat_id" id="catName" class="form-control">
+<form:select path="category.cat_id" id="catName" class="form-control">
 <form:option value="0" label="----------- Select Category -----------"/>
 <form:options items="${catlist}"/>
 </form:select></div></div>
@@ -61,7 +61,7 @@
 </div></div>
 <div class="form-group"><label class="control-label col-sm-5 tt" for="supName">Supplier</label>
 <div class="col-sm-7">
-<form:select path="sup_id" class="form-control" id="supName">
+<form:select path="supplier.sup_id" class="form-control" id="supName">
 <form:option value="0" label="----------- Select Supplier -----------"/>
 <form:options items="${suplist}"/>
 </form:select>
@@ -81,7 +81,7 @@
 <tr><th>Product Id</th><th>Product Name</th><th>Product Description</th><th>Price</th><th>Product Quantity</th><th>Category</th><th>Supplier</th><th colspan="2">Operation</th></tr>
 <c:forEach items="${proDetails}" var="product">
 <tr>
-<td>${product.pro_id}</td><td>${product.pro_name}</td><td>${product.pro_desc}</td><td>${product.pro_price}</td><td>${product.pro_quantity}</td><td>${product.cat_id}</td><td>${product.sup_id}</td>
+<td>${product.pro_id}</td><td>${product.pro_name}</td><td>${product.pro_desc}</td><td>${product.pro_price}</td><td>${product.pro_quantity}</td><td>${product.category.cat_name}</td><td>${product.supplier.sup_name}</td>
 <td>
 <a href="<c:url value="updateProduct?proId=${product.pro_id}"/>" id="update" class="btn btn-success tt">Update</a>
 </td><td>
