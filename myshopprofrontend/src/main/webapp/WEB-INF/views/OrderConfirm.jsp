@@ -62,7 +62,7 @@ $(document).ready(function(){
 <center><h3><b>Delivery and Payment Details</b></h3></center></div></th></tr>
 				<form action="placeOrder" method="post">
 				<tr><th>Deliver To</th><td>
-				<input type="text" name="full_name" class="form-control" value="${user.full_name}"/></td>
+				<input type="text" name="name" class="form-control" value="${user.full_name}"/></td>
 				</tr>
 				<tr><th>Mobile Number</th><td>
 				<input type="text" name="mobile" class="form-control" value="${user.mobile}"/></td>
@@ -71,7 +71,7 @@ $(document).ready(function(){
 				<textarea name="address" rows="3" class="form-control">${user.address}</textarea></td>
 				</tr>
 				<tr><th>Total Payable Amount</th><td>
-				<input type="hidden" name="amount" value="${totalAmount}"/><i class="fa fa-inr"></i>${totalAmount}
+				<i class="fa fa-inr"></i>${totalAmount}
 				</td></tr>
 				<tr><th>Payment Mode</th><td><label class="radio-inline"><input type="radio" name="payMode" value="Credit Card"/>Credit Card</label>
 <label class="radio-inline"><input type="radio" name="payMode" value="Internet Banking"/>Internet Banking</label>

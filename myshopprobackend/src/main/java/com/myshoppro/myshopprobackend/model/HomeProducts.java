@@ -9,7 +9,6 @@ import javax.persistence.ManyToOne;
 @Entity
 public class HomeProducts {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int srNo;
 	@ManyToOne
 	private Product product;

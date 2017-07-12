@@ -2,19 +2,17 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- <link rel="stylesheet" href='<c:url value="/resources/css/bootstrap.min.css"/>'>
 <script src='<c:url value="/resources/js/jquery-3.2.1.min.js"/>'></script>
 <script src='<c:url value="/resources/js/bootstrap.min.js"/>'></script>--> 
 <link  rel="stylesheet" href='<c:url value="/resources/css/style.css"/>'/>
 </head>
 <body>
-<div class="container-fluid" style="background-color:#0d59af;color:#fff;height:150px;">
+<div class="container-fluid" style="background-color:#0d59af;color:#fff;height:140px; padding-top:10px;font-family: Forte">
  <center> 
- <img src="<c:url value="/resources/images/Logo.png"/>" height="131" width="120"/>
-  <img src="<c:url value="/resources/images/Logo.png"/>" height="131" width="120"/>
- <span style="font-size:50px">MYSHOPPRO</span>
-  <img src="<c:url value="/resources/images/Logo.png"/>" height="131" width="120"/>
-  <img src="<c:url value="/resources/images/Logo.png"/>" height="131" width="120"/>
+ <img src="<c:url value="/resources/images/logo.jpg"/>" style="height:80%; width:120px;margin-top: -45px"/>
+ <span style="font-size:60px;padding-left: 10px;">MYSHO<span style="font-size:80px;">P</span>RO</span>
 </center></div>
 <nav class="navbar navbar-inverse" style="margin-bottom:0px;border-radius:0px;">
   <div class="container-fluid">
@@ -59,7 +57,7 @@
         	</c:if>
         	</c:forEach>
         </ul></li> 
-        <li><a href="Test">About Us</a></li> 
+        <li><a href="aboutUs">About Us</a></li> 
       </ul>
       <ul class="nav navbar-nav navbar-right">
      

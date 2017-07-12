@@ -58,17 +58,10 @@ public class UserController {
 			return "redirect:index";
 		}
 	
-	@RequestMapping("/admin**")
-	public ModelAndView adminPage() {
-
-		ModelAndView model = new ModelAndView("AdminHome");
-		model.addObject("title", "Spring Security Login Form - Database Authentication");
-		return model;
-	}
 
 	@RequestMapping(value="/addUserDetails",method=RequestMethod.POST)
 	public ModelAndView addProduct(@RequestParam Map<String,String> user)
-	{	ModelAndView m=new ModelAndView("Login");
+	{	ModelAndView m=new ModelAndView();
 		UserDetails userDetails=userDetailsDAO.getUserDetails(user.get("username"));
 		if(userDetails!=null){
 		m.addObject("userExist","Username Already Exist");
@@ -85,7 +78,7 @@ public class UserController {
 		userDetails.setEnabled(true);
 		userDetails.setRole("ROLE_USER");
 		userDetailsDAO.insertOrUpdateUserDetails(userDetails);
-		m.addObject("userCreate","Account Successfully Created");
+		m.addObject("userCreate","Account Created");
 		m.setViewName("Login");
 		}
 		return m;

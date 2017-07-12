@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
 import com.myshoppro.myshopprobackend.dao.CategoryDAO;
 import com.myshoppro.myshopprobackend.dao.ProductDAO;
 import com.myshoppro.myshopprobackend.dao.SupplierDAO;
@@ -99,7 +100,9 @@ public class ProductController {
 		ModelAndView m=new ModelAndView("ViewProducts");
 		Category category=categoryDAO.getCategory(catId);
 		List<Product> pro_list=productDAO.getProductCatWise(category);
-		m.addObject("proDetails",pro_list);
+		Gson g=new Gson();
+		String product_list=g.toJson(pro_list);
+		m.addObject("proDetails",product_list);
 		return m;	
 	}
 	

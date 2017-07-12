@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <%@include file="header.jsp" %>
 <div class="container">
+<br/>
 <script type="text/javascript" src="<c:url value="/resources/js/inputform.js"/>"></script>
 	<input type="hidden" value="${flag}" id="sh"/>
 	<div class="panel-group">

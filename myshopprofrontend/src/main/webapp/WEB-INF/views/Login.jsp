@@ -14,6 +14,9 @@
 <%@include file="/WEB-INF/views/header.jsp"%>
 <div class="container-fluid loginback">
 <div class="container col-sm-4 col-sm-offset-4 loginform">
+							<c:if test="${userCreate!=null}"><br/><br/>
+							<span style="border:1px solid white;padding:10px;font-size: 25px;">${userCreate}</span>
+							</c:if>
 							<h1>Sign In</h1>
 							<form action="perform_login" method="post" class="form-horizontal">
 							<div class="from-style">
@@ -32,5 +35,7 @@
 							</div>
 </div>
 <%@include file="/WEB-INF/views/Footer.jsp"%>
+
+							
 </body>
 </html>

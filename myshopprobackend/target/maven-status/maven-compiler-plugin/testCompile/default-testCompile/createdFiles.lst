@@ -1,6 +1,7 @@
-com\myshoppro\myshopprobackend\SupplierTestCase.class
-com\myshoppro\myshopprobackend\ProductTestCase.class
 com\myshoppro\myshopprobackend\AppTest.class
 com\myshoppro\myshopprobackend\CartTestCase.class
 com\myshoppro\myshopprobackend\CategoryTestCase.class
+com\myshoppro\myshopprobackend\HomeProductsTestCase.class
+com\myshoppro\myshopprobackend\SupplierTestCase.class
+com\myshoppro\myshopprobackend\ProductTestCase.class
 com\myshoppro\myshopprobackend\UserDetailsTestCase.class

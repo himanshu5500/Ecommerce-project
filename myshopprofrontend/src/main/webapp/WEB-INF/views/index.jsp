@@ -38,19 +38,22 @@ box-shadow:0 0 10px grey;}
     </a>
   </div>
   <br/>
-<center><h1>Trending Products</h1></center><hr/>
+
+<center><h1>Trending Products</h1>
+<div style="width:600px;border:2px solid red"></div></center>
+<br/>
 <div id="HomeACarousel" class="carousel slide" data-ride="carousel" data-interval="2400">
     <div class="carousel-inner">
     <div class="item active">
       <c:forEach items="${homeProducts}" var="homeProduct">
-      <c:if test="${homeProduct.barNumber==1}">
+      <c:if test="${homeProduct.barNumber==101}">
 	<div class="col-sm-3">
     <div class="thumbnail">
       <a href="productDetails?proid=${homeProduct.product.pro_id}">
         <img src='<c:url value="/resources/images/${homeProduct.product.pro_id}"/>.jpg' alt="${homeProduct.product.pro_name}" style="height:60%;"/>
         <div class="caption">
           <center><h4><b>${homeProduct.product.pro_name}</b></h4></center>
-          <span style="bottom:2em;position:absolute;"><h4><span class="glyphicon glyphicon-usd"></span>${homeProduct.product.pro_price}</h4>
+          <span style="bottom:2em;position:absolute;"><h4><i class="fa fa-inr"></i>${homeProduct.product.pro_price}</h4>
           <h5>Cash on Delivery eligible</h5></span>
         </div>
       </a>
@@ -60,7 +63,68 @@ box-shadow:0 0 10px grey;}
 </div>
 <div class="item">
       <c:forEach items="${homeProducts}" var="homeProduct">
-      <c:if test="${homeProduct.barNumber==2}">
+      <c:if test="${homeProduct.barNumber==102}">
+	<div class="col-sm-3">
+    <div class="thumbnail">
+      <a href="productDetails?proid=${homeProduct.product.pro_id}">
+        <img src='<c:url value="/resources/images/${homeProduct.product.pro_id}"/>.jpg' alt="${homeProduct.product.pro_name}" style="height:60%;"/>
+        <div class="caption">
+          <center><h4><b>${homeProduct.product.pro_name}</b></h4></center>
+          <span style="bottom:2em;position:absolute;"><h4><i class="fa fa-inr"></i>${homeProduct.product.pro_price}</h4>
+          <h5>Cash on Delivery eligible</h5></span>
+        </div>
+      </a>
+    </div>
+</div></c:if>
+  </c:forEach>
+</div>    
+    </div>
+
+    <!-- Left and right controls
+    <a class="left carousel-control" href="#HomeACarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#HomeACarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a> -->
+  </div>
+  <br/><br/><br/>
+  <div class="container">
+  <div class="col-sm-6">
+  <img src="<c:url value="/resources/images/hdd1.jpg"/>" style="width:100%"/>
+  </div>
+  <div class="col-sm-6">
+  <img src="<c:url value="/resources/images/hdd2.jpg"/>" style="width:100%"/>
+  </div>
+  </div>
+  <br/><br/><br/>
+  <center><h1>New Launched Products</h1>
+  <div style="width:600px;border:2px solid red"></div></center>
+<br/>
+<div id="HomeBCarousel" class="carousel slide" data-ride="carousel" data-interval="2400">
+    <div class="carousel-inner">
+    <div class="item active">
+      <c:forEach items="${homeProducts}" var="homeProduct">
+      <c:if test="${homeProduct.barNumber==201}">
+	<div class="col-sm-3">
+    <div class="thumbnail">
+      <a href="productDetails?proid=${homeProduct.product.pro_id}">
+        <img src='<c:url value="/resources/images/${homeProduct.product.pro_id}"/>.jpg' alt="${homeProduct.product.pro_name}" style="height:60%;"/>
+        <div class="caption">
+          <center><h4><b>${homeProduct.product.pro_name}</b></h4></center>
+          <span style="bottom:2em;position:absolute;"><h4><i class="fa fa-inr"></i>${homeProduct.product.pro_price}</h4>
+          <h5>Cash on Delivery eligible</h5></span>
+        </div>
+      </a>
+    </div>
+</div></c:if>
+  </c:forEach>
+</div>
+<div class="item">
+      <c:forEach items="${homeProducts}" var="homeProduct">
+      <c:if test="${homeProduct.barNumber==202}">
 	<div class="col-sm-3">
     <div class="thumbnail">
       <a href="productDetails?proid=${homeProduct.product.pro_id}">

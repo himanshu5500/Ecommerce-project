@@ -24,10 +24,10 @@ public class DBConfig {
 	@Bean(name="dataSource")
 	public DataSource getDataSource(){
 		DriverManagerDataSource datasource=new DriverManagerDataSource();
-		datasource.setDriverClassName("com.mysql.jdbc.Driver");
-		datasource.setUrl("jdbc:mysql://localhost:3306/myshoppro");
+		datasource.setDriverClassName("org.h2.Driver");
+		datasource.setUrl("jdbc:h2:~/myshoppro");
 		datasource.setUsername("root");
-		datasource.setPassword("himanshu");
+		datasource.setPassword("root");
 		return datasource;
 	}
 	
@@ -36,7 +36,7 @@ public class DBConfig {
 	public SessionFactory getSessionFactory(){
 		Properties prop = new Properties();
 		prop.put("hibernate.hbm2ddl.auto","update");
-		prop.put("hibernate.dialect","org.hibernate.dialect.MySQLDialect");
+		prop.put("hibernate.dialect","org.hibernate.dialect.H2Dialect");
 		prop.put("hibernate.show_sql","true");
 		LocalSessionFactoryBuilder sessionFactBuilder = new LocalSessionFactoryBuilder(getDataSource());
 		sessionFactBuilder.addProperties(prop);
@@ -46,6 +46,7 @@ public class DBConfig {
 		sessionFactBuilder.addAnnotatedClass(Supplier.class);
 		sessionFactBuilder.addAnnotatedClass(Cart.class);
 		sessionFactBuilder.addAnnotatedClass(HomeProducts.class);
+		sessionFactBuilder.addAnnotatedClass(OrderDetails.class);
 		return sessionFactBuilder.buildSessionFactory();
 	}
 

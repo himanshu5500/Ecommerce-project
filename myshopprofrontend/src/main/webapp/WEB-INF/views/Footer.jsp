@@ -2,25 +2,25 @@
 <div class="col-sm-3">
 				<h3>Information</h3>
 				<ul class="foot-info">
-					<li><a href="events.html">FAQ's</a></li>
-					<li><a href="about.html">About Us</a></li>
-					<li><a href="products.html">Best Deals</a></li>
-					<li><a href="services.html">Services</a></li>
-					<li><a href="short-codes.html">Short Codes</a></li>
+					<li><a href="#">FAQ's</a></li>
+					<li><a href="aboutUs">About Us</a></li>
+					<li><a href="viewProducts?id=4">Best Deals</a></li>
+					<li><a href="aboutUs">Services</a></li>
+					<li><a href="#">Short Codes</a></li>
 				</ul></div>
 				<div class="col-sm-3">
-				<h3>Category</h3>
+				<h3>Top Category</h3>
 				<ul class="foot-info">
-					<li><a href="events.html">Mobiles</a></li>
-					<li><a href="about.html">Laptops</a></li>
-					<li><a href="products.html">Computer Accessories</a></li>
-					<li><a href="services.html">Televisions</a></li>
+					<li><a href="viewProducts?id=15">Business Laptops</a></li>
+					<li><a href="viewProducts?id=4">Intex</a></li>
+					<li><a href="viewProducts?id=12">Mouse</a></li>
+					<li><a href="viewProducts?id=6">Full HD TVs</a></li>
 				</ul></div>
 				<div class="col-sm-3">
-				<h3>Contact Us</h3>
-				<ul class="foot-info">
-					<li>New Delhi, India</li>
-					<li>myshoppro@example.com</li>
+				<h3>&nbsp;&nbsp;&nbsp;Contact Us</h3>
+				<ul class="foot-info" type="none">
+					<li><span class="glyphicon glyphicon-map-marker"></span> New Delhi, India</li>
+					<li><span class="glyphicon glyphicon-envelope"></span> myshoppro@example.com</li>
 					<li><i class="fa fa-phone" style="color:white"></i> +1234 567 890</li>
 				</ul></div>
 				<div class="col-sm-3 text-center">

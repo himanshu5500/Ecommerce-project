@@ -33,12 +33,5 @@ public class HomeProductsDAO {
 		return list;
 	}
 	
-	@Transactional
-	public void deleteHomeProducts(HomeProducts homeProducts)
-	{
-		sessionFactory.getCurrentSession().delete(homeProducts);
-	}
-	
-	
 	
 }

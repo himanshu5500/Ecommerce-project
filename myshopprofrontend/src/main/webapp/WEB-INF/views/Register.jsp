@@ -14,8 +14,10 @@
 <%@include file="/WEB-INF/views/header.jsp"%>
 <div class="container-fluid loginback">
 <div class="container col-sm-4 col-sm-offset-4 loginform">
-							<h1>Sign Up</h1><br/>
-							<h2>${userExist}</h2>
+							<c:if test="${userExist!=null}"><br/><br/>
+							<span style="border:1px solid white;padding:10px;font-size: 25px;">${userExist}</span>
+							</c:if>
+							<h1>Sign Up</h1>
 							<form action="addUserDetails" method="post" class="form-horizontal">
 							<div class="from-style">
 							<input name="full_name" class="form-control" required=""/>
@@ -26,7 +28,7 @@
 							<label>Enter Email</label>
 							</div>
 							<div class="from-style">
-							<input type="text" name="mobile" class="form-control" required=""/>
+							<input type="text" name="mobile" class="form-control" required="" maxlength="10"/>
 							<label>Mobile Number</label>
 							</div>
 							<div class="from-style">

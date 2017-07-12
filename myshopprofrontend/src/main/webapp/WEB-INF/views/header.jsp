@@ -9,11 +9,11 @@
 <link  rel="stylesheet" href='<c:url value="/resources/css/style.css"/>'/>
 </head>
 <body>
-<div class="container-fluid" style="background-color:#0d59af;color:#fff;height:140px; padding-top:10px;font-family: Forte">
- <center> 
- <img src="<c:url value="/resources/images/logo.jpg"/>" style="height:80%; width:120px;margin-top: -45px"/>
- <span style="font-size:60px;padding-left: 10px;">MYSHO<span style="font-size:80px;">P</span>RO</span>
-</center></div>
+<div class="container-fluid" style="background-color:#0d59af;color:#fff;height:120px; padding-top:25px;font-family: Forte">
+ <div class="text-center" style="margin-top: -31px;margin-bottom:1px;">
+ <img src="<c:url value="/resources/images/logo.jpg"/>" style="width:100px;margin-top:-20px"/>
+ <span style="font-size:55px;padding-left: 10px;">MYSHO<span style="font-size:75px;">P</span>RO</span>
+</div></div>
 <nav class="navbar navbar-inverse" style="margin-bottom:0px;border-radius:0px;">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -95,16 +95,6 @@
       </c:if>
       
       </ul>
-      <form class="navbar-form navbar-right">
-  <div class="input-group">
-    <input type="text" class="form-control" placeholder="Search"/>
-    <div class="input-group-btn">
-      <button class="btn btn-default" type="submit">
-        <i class="glyphicon glyphicon-search"></i>
-      </button>
-    </div>
-  </div>
-</form>
     </div>
       
   </div>

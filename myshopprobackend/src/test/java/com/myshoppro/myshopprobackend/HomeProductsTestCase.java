@@ -30,8 +30,9 @@ public class HomeProductsTestCase {
 		switch(i){
 		case 1:
 			homeProducts=new HomeProducts();
-			homeProducts.setBarNumber(2);
-			homeProducts.setProduct(productDAO.getProduct(11));
+			homeProducts.setSrNo(1);
+			homeProducts.setBarNumber(1);
+			homeProducts.setProduct(productDAO.getProduct(2));
 			homeProductsDAO.insertOrUpdateHomeProducts(homeProducts);
 			System.out.println("HomeProducts Inserted");
 			break;

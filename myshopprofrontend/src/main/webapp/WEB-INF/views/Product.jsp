@@ -10,6 +10,7 @@
 <title>Insert title here</title>
 <%@include file="header.jsp"%>
 <div class="container">
+<br/>
 	<script type="text/javascript" src="<c:url value="/resources/js/inputform.js"/>"></script>
 	<input type="hidden" value="${flag}" id="sh"/>
 	<div class="panel-group">

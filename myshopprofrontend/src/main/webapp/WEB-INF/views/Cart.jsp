@@ -38,7 +38,7 @@
 </c:forEach><tr><td colspan="3">
 <div class="row" style="padding:2em;">
 <div class="col-sm-offset-2 col-sm-3">
-<a href="" class="btn btn-success btn-block">Continue Shopping....</a>
+<a href="index" class="btn btn-success btn-block">Continue Shopping....</a>
 </div>
 <div class="col-sm-offset-2 col-sm-3">
 <a href="checkOut" class="btn btn-success btn-block">Check Out</a>

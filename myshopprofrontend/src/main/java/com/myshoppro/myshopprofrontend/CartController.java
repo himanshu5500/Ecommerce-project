@@ -40,7 +40,6 @@ public class CartController {
 	{	ModelAndView m=new ModelAndView("Cart");
 		boolean notexist=true;
 		String username=(String)session.getAttribute("username");
-		
 		List<Cart> cart_list=cartDAO.getCartItems(username);
 		for(Cart cart:cart_list)
 			if(cart.getProd_id()==proId){
@@ -89,6 +88,34 @@ public class CartController {
 		m.addObject("cartItems", cart_list);
 		return m;
 	}	
+	@RequestMapping("/BuyNow")
+	public ModelAndView buyNow(@RequestParam("proid") int proId,HttpSession session)
+	{	ModelAndView m=new ModelAndView("redirect:checkOut");
+		boolean notexist=true;
+		String username=(String)session.getAttribute("username");
+		
+		List<Cart> cart_list=cartDAO.getCartItems(username);
+		for(Cart cart:cart_list)
+			if(cart.getProd_id()==proId){
+				notexist=false;
+				cart.setQuantity(cart.getQuantity()+1);
+				cartDAO.insertOrUpdateCart(cart);
+			}
+		if(notexist){
+		Cart cart=new Cart();
+		cart.setCart_id(1001);
+		cart.setQuantity(1);
+		cart.setStatus("N");
+		cart.setUsername(username);
+		cart.setProd_id(proId);
+		Product product=productDAO.getProduct(proId);
+		cart.setProd_name(product.getPro_name());
+		cart.setPrice(product.getPro_price());
+		cartDAO.insertOrUpdateCart(cart);
+		}
+		return m;
+	}
+	
 	@ModelAttribute
 	public void homeCatDetails(Model m){
 		List<Category> list=categoryDAO.getCategoryDetails();

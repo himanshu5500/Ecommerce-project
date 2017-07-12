@@ -20,7 +20,7 @@
 <img src='<c:url value="/resources/images/${cartItem.prod_id}"/>.jpg' alt="${cartItem.prod_name}" style="height:100%;"/>
 </div></td><td>
 	<h2>${cartItem.prod_name}</h2>
-	<h2><span class="glyphicon glyphicon-usd"></span><b>${cartItem.price}</b></h2> 
+	<h2><i class="fa fa-inr"></i><b>${cartItem.price}</b></h2> 
     </td></tr>
     <tr><td>
     <div class="row">
@@ -38,7 +38,7 @@
 </c:forEach><tr><td colspan="3">
 <div class="row" style="padding:2em;">
 <div class="col-sm-offset-2 col-sm-3">
-<a href="" class="btn btn-success btn-block">Continue Shopping....</a>
+<a href="index" class="btn btn-success btn-block">Continue Shopping....</a>
 </div>
 <div class="col-sm-offset-2 col-sm-3">
 <a href="checkOut" class="btn btn-success btn-block">Check Out</a>

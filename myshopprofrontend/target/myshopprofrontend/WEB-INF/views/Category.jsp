@@ -65,7 +65,7 @@
 			    </div>
 			</div>
 		
-			<div class="panel-body">
+			<div class="panel-body table-responsive">
 				<table class="table table-hover ttt">
 					<tr><th>CatId</th><th>Category Name</th><th>Category Description</th><th>Operation</th></tr>
 					<c:forEach items="${catDetails}" var="category">

@@ -26,6 +26,10 @@
 							<label>Enter Email</label>
 							</div>
 							<div class="from-style">
+							<input type="text" name="mobile" class="form-control" required="" maxlength="10"/>
+							<label>Mobile Number</label>
+							</div>
+							<div class="from-style">
 							<input name="username" class="form-control" required=""/>
 							<label>Create Username</label>
 							</div>

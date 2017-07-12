@@ -8,34 +8,51 @@ import javax.persistence.ManyToOne;
 @Entity
 public class OrderDetails {
 	@Id
-	private String order_id;
-	private String cart_id,pay_mode,ship_address,status,name;
-	private int order_amount,mobile;
-	@ManyToOne
-	private Product product;
+	@GeneratedValue
+	private int id;
+	private String pay_mode,ship_address,status,name,username,prod_name;
+	private int order_id,cart_id,order_amount,mobile,prod_id;
 	
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getProd_name() {
+		return prod_name;
+	}
+	public void setProd_name(String prod_name) {
+		this.prod_name = prod_name;
+	}
+	public int getProd_id() {
+		return prod_id;
+	}
+	public void setProd_id(int prod_id) {
+		this.prod_id = prod_id;
+	}
 	public int getMobile() {
 		return mobile;
 	}
 	public void setMobile(int mobile) {
 		this.mobile = mobile;
 	}
-	public Product getProduct() {
-		return product;
-	}
-	public void setProduct(Product product) {
-		this.product = product;
-	}
-	public String getOrder_id() {
+	public int getOrder_id() {
 		return order_id;
 	}
-	public void setOrder_id(String order_id) {
+	public void setOrder_id(int order_id) {
 		this.order_id = order_id;
 	}
-	public String getCart_id() {
+	public int getCart_id() {
 		return cart_id;
 	}
-	public void setCart_id(String cart_id) {
+	public void setCart_id(int cart_id) {
 		this.cart_id = cart_id;
 	}
 	public String getPay_mode() {

@@ -17,14 +17,14 @@
 <img src='<c:url value="/resources/images/${product.pro_id}"/>.jpg' alt="${product.pro_name}" style="height:73%;"/>
  <div class="caption">
           <a href="addToCart?proid=${product.pro_id}" class="btn btn-danger btn-block"><h4>Add To Cart</h4></a>
-          <a href="placeOrder" class="btn btn-warning btn-block"><h4>Buy Now</h4></a>
+          <a href="checkOut" class="btn btn-warning btn-block"><h4>Buy Now</h4></a>
         </div>
 </div>
 <div class="col-sm-8">
 <div class="panel panel-default">
   <div class="panel-heading proTitle"><h2>${product.pro_name}</h2></div>
-  <div class="panel-body"><h2><span class="glyphicon glyphicon-usd"></span><b>${product.pro_price}</b></h2><br/>
-  <h4><b>Seller:</b>${supplier}</h4>
+  <div class="panel-body"><h2><i class="fa fa-inr"></i><b>${product.pro_price}</b></h2><br/>
+  <h4><b>Seller:</b>${product.supplier.sup_name}</h4>
   </div>
 </div>
   
