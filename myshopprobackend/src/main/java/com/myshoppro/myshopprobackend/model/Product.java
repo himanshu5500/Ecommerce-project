@@ -15,9 +15,7 @@ public class Product {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int pro_id;
-	private String pro_name;
-	@Lob
-	private String pro_desc;
+	private String pro_name, pro_desc;
 	private int pro_quantity,pro_price;
 	@ManyToOne
 	private Supplier supplier;

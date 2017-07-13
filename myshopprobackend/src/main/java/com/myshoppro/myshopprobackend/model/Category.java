@@ -11,9 +11,7 @@ public class Category {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int cat_id;
-	private String cat_name,home_cat;
-	@Lob
-	private String cat_desc;
+	private String cat_name,home_cat,cat_desc;
 	public String getHome_cat() {
 		return home_cat;
 	}

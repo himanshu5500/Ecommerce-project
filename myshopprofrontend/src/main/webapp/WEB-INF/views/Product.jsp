@@ -16,8 +16,7 @@
 	<div class="panel-group">
 		<div class="panel panel-primary">
 			<div class="panel-heading "><button type="button" class="btn btn-danger btn-sm tt pull-right" id="myBtn">Add New Product</button>
-			<span class="tttt">Product Details</span>
-				
+			<span class="tttt">Product Details</span>				
 			</div>
 			<div class="modal fade" id="myModal" role="dialog">
 				<div class="modal-dialog">
@@ -43,7 +42,7 @@
 <div class="form-group">
 <label class="control-label col-sm-5 tt" for="proDesc">Product description</label>
 <div class="col-sm-7">
-<form:textarea path="pro_desc" class="form-control" id="proDesc" rows="5"/>
+<form:textarea path="pro_desc" class="form-control" id="proDesc"/>
 </div></div>
 <div class="form-group">
 <label class="control-label col-sm-5 tt" for="proImage">Upload image</label>
@@ -95,5 +94,6 @@
 </div>
 </div>
 </div>
+<%@include file="/WEB-INF/views/Footer.jsp"%>
 </body>
 </html>

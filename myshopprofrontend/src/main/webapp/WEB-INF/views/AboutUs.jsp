@@ -13,6 +13,7 @@ height:32em;
 </style>
 <%@include file="/WEB-INF/views/header.jsp"%>
 <div class="container-fluid backImg">
+<div style="background-color:rgba(0,0,0,0.5);height:100%" class="container-fluid"></div>
 </div>
 <div style="margin:auto;width:60%">
 

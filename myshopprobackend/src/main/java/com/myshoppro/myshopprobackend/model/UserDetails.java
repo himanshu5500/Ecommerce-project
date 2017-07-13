@@ -8,9 +8,7 @@ import javax.persistence.Lob;
 public class UserDetails {
 	@Id
 	private String username; 
-	private String full_name,password,role,email;
-	@Lob
-	private String address;
+	private String full_name,password,role,email,address;
 	private int mobile;
 	private boolean enabled;
 	

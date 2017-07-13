@@ -10,18 +10,22 @@
 .loginback{
   background:url("<c:url value="/resources/images/bg.jpg"/>");
   }
+ .msg{border:1px solid white;padding:10px;font-size: 25px;}
 </style>
 <%@include file="/WEB-INF/views/header.jsp"%>
 <div class="container-fluid loginback">
 <div class="container col-sm-4 col-sm-offset-4 loginform">
+							<c:if test="${userCreate!=null}"><br/><br/>
+							<span class="msg">${userCreate}</span>
+							</c:if>
 							<h1>Sign In</h1>
 							<form action="perform_login" method="post" class="form-horizontal">
 							<div class="from-style">
-							<input type="text" name="username" class="form-control" required=""/>
+							<input type="text" name="username" class="form-control" required="" maxlength="25"/>
 							<label>Username</label>
 							</div>
 							<div class="from-style">
-							<input type="password" name="password" class="form-control" required=""/>
+							<input type="password" name="password" class="form-control" required="" pattern="[A-za-z0-9]{8,}" title="Atleast have 8 characters, special characters are not allowed"/>
 							<label>Password</label>
 							</div>
 							<input type="submit" value="Sign in" class="btn btn-primary btn-block submitBut"/>
@@ -31,6 +35,6 @@
 							</div>
 							</div>
 </div>
-<%@include file="/WEB-INF/views/Footer.jsp"%>
+<%@include file="/WEB-INF/views/Footer.jsp"%>				
 </body>
 </html>

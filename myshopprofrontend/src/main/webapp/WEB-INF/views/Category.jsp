@@ -30,7 +30,7 @@
 							<div class="form-group">
 								<label class="control-label col-sm-5 tt" for="homeCat">Home Category</label>
 								<div class="col-sm-7">
-								<select name="home_cat" id="homeCat" class="form-control">
+								<select name="home_cat" id="homeCat" class="form-control" required>
 								<c:if test="${!flag}"><option value="none" label="-------- Select Home Category --------"/></c:if>
 								<c:if test="${flag}"><option value="${category.home_cat}">${category.home_cat}</option></c:if>
 								<option value="Mobiles">Mobiles</option>
@@ -43,15 +43,15 @@
 							<div class="form-group">
 								<label class="control-label col-sm-5 tt" for="catName">Category Name</label>
 								<div class="col-sm-7">
-								<c:if test="${flag}"><input type="text" name="name" value="${category.cat_name}" id="catName" class="form-control"/></c:if>
-								<c:if test="${!flag}"><input type="text" name="name" id="catName" class="form-control"/></c:if>
+								<c:if test="${flag}"><input type="text" name="name" value="${category.cat_name}" id="catName" class="form-control" required maxlength="25"/></c:if>
+								<c:if test="${!flag}"><input type="text" name="name" id="catName" class="form-control" required maxlength="25"/></c:if>
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="control-label col-sm-5 tt" for="catDesc">Category Description</label>
 								<div class="col-sm-7">
-								<c:if test="${flag}"><textarea name="desc" id="catDesc" class="form-control" rows="5" placeholder="Add Description">${category.cat_desc}</textarea></c:if>
-								<c:if test="${!flag}"><textarea name="desc" id="catDesc" class="form-control" rows="5" placeholder="Add Description"></textarea></c:if>
+								<c:if test="${flag}"><textarea name="desc" id="catDesc" class="form-control" rows="5" placeholder="Add Description" required maxlength="255">${category.cat_desc}</textarea></c:if>
+								<c:if test="${!flag}"><textarea name="desc" id="catDesc" class="form-control" rows="5" placeholder="Add Description" required maxlength="255"></textarea></c:if>
 								</div>
 							</div>
 							<c:if test="${flag}"><input type="hidden" name="catId" value="${category.cat_id} "/></c:if>

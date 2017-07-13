@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <%@include file="header.jsp" %>
 <div class="container">
+<br/>
 <script type="text/javascript" src="<c:url value="/resources/js/inputform.js"/>"></script>
 	<input type="hidden" value="${flag}" id="sh"/>
 	<div class="panel-group">
@@ -28,15 +29,15 @@
 							<div class="form-group">
 								<label class="control-label col-sm-5 tt" for="supName">Supplier Name</label>
 								<div class="col-sm-7">
-								<c:if test="${flag}"><input type="text" name="name" value="${supplier.sup_name}" id="supName" class="form-control"/></c:if>
-								<c:if test="${!flag}"><input type="text" name="name" id="supName" class="form-control"/></c:if>
+								<c:if test="${flag}"><input type="text" name="name" value="${supplier.sup_name}" id="supName" class="form-control" required maxlength="25"/></c:if>
+								<c:if test="${!flag}"><input type="text" name="name" id="supName" class="form-control" required maxlength="25"/></c:if>
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="control-label col-sm-5 tt" for="supAddress">Supplier Address</label>
 								<div class="col-sm-7">
-								<c:if test="${flag}"><textarea name="address" id="supAddress" class="form-control" rows="5" placeholder="Add Address">${supplier.sup_address}</textarea></c:if>
-								<c:if test="${!flag}"><textarea name="address" id="supAddress" class="form-control" rows="5" placeholder="Add Address"></textarea></c:if>	
+								<c:if test="${flag}"><textarea name="address" id="supAddress" class="form-control" rows="5" placeholder="Add Address" required maxlength="255">${supplier.sup_address}</textarea></c:if>
+								<c:if test="${!flag}"><textarea name="address" id="supAddress" class="form-control" rows="5" placeholder="Add Address" required maxlength="255"></textarea></c:if>	
 								</div>
 							</div>
 							<c:if test="${flag}"><input type="hidden" name="supId" value="${supplier.sup_id} "/></c:if>

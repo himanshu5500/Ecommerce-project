@@ -9,6 +9,7 @@ com\myshoppro\myshopprobackend\App.class
 com\myshoppro\myshopprobackend\dao\UserDetailsDAO.class
 com\myshoppro\myshopprobackend\config\DBConfig.class
 com\myshoppro\myshopprobackend\dao\CategoryDAO.class
+com\myshoppro\myshopprobackend\dao\OrderDetailsDAO.class
 com\myshoppro\myshopprobackend\model\UserDetails.class
 com\myshoppro\myshopprobackend\model\Category.class
 com\myshoppro\myshopprobackend\model\HomeProducts.class

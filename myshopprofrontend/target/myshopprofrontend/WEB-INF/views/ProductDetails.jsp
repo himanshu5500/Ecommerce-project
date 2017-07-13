@@ -17,7 +17,7 @@
 <img src='<c:url value="/resources/images/${product.pro_id}"/>.jpg' alt="${product.pro_name}" style="height:73%;"/>
  <div class="caption">
           <a href="addToCart?proid=${product.pro_id}" class="btn btn-danger btn-block"><h4>Add To Cart</h4></a>
-          <a href="checkOut" class="btn btn-warning btn-block"><h4>Buy Now</h4></a>
+          <a href="BuyNow?proid=${product.pro_id}" class="btn btn-warning btn-block"><h4>Buy Now</h4></a>
         </div>
 </div>
 <div class="col-sm-8">

@@ -19,8 +19,8 @@ app.controller('myCtrl', function($scope) {
 box-shadow:0 0 10px grey;}
 </style>
 <%@include file="header.jsp" %>
-<div class="container" ng-app="productApp" ng-controller="myCtrl">
-<input type="text" ng-model="searchProduct" placeholder="Search"/>
+<div class="container" ng-app="productApp" ng-controller="myCtrl"> 
+<input type="text" ng-model="searchProduct" placeholder="Search" class="form-control" style="margin-top:-1em;box-shadow:0 0 10px blue;border:1px solid blue;font-size:20px;"/><br/>
 <div class="col-sm-3" ng-repeat="product in products | filter:searchProduct">
     <div class="thumbnail">
       <a href="productDetails?proid={{product.pro_id}}">

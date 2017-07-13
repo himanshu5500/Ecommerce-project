@@ -36,7 +36,7 @@ td,th,input{font-size: 1.2em;}
 <tr><td><b>Payment Mode : </b>${orderItem.pay_mode}</td><td><b>Amount : <i class="fa fa-inr"></i>${orderItem.order_amount}</b>
   </td></tr></table></div></div>
 </c:forEach>
-</div>
+</div><br/>
 <%@include file="/WEB-INF/views/Footer.jsp"%>
 </body>
 </html>

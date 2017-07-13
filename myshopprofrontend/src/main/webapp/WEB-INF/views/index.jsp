@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>My Shop Pro</title>
 <style>
 .thumbnail{height:380px;
 box-shadow:0 0 10px grey;}
@@ -79,17 +80,7 @@ box-shadow:0 0 10px grey;}
   </c:forEach>
 </div>    
     </div>
-
-    <!-- Left and right controls
-    <a class="left carousel-control" href="#HomeACarousel" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#HomeACarousel" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-      <span class="sr-only">Next</span>
-    </a> -->
-  </div>
+ </div>
   <br/><br/><br/>
   <div class="container">
   <div class="col-sm-6">
@@ -140,20 +131,8 @@ box-shadow:0 0 10px grey;}
   </c:forEach>
 </div>    
     </div>
-
-    <!-- Left and right controls
-    <a class="left carousel-control" href="#HomeACarousel" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#HomeACarousel" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-      <span class="sr-only">Next</span>
-    </a> -->
   </div>
-  <h2>
-	
-	</h2>
+<br/>
 <%@include file="/WEB-INF/views/Footer.jsp"%>
 </body>
 </html>

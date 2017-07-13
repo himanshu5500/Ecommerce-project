@@ -14,19 +14,21 @@
 <%@include file="/WEB-INF/views/header.jsp"%>
 <div class="container-fluid loginback">
 <div class="container col-sm-4 col-sm-offset-4 loginform">
-							<h1>Sign Up</h1><br/>
-							<h2>${userExist}</h2>
+							<c:if test="${userExist!=null}"><br/><br/>
+							<span style="border:1px solid white;padding:10px;font-size: 25px;">${userExist}</span>
+							</c:if>
+							<h1>Sign Up</h1>
 							<form action="addUserDetails" method="post" class="form-horizontal">
 							<div class="from-style">
-							<input name="full_name" class="form-control" required=""/>
+							<input name="full_name" class="form-control" required="" maxlength="25"/>
 							<label>Enter Name</label>
 							</div>
 							<div class="from-style">
-							<input type="email" name="email" class="form-control" required=""/>
+							<input type="email" name="email" class="form-control" required="" title="Enter a valid email address"/>
 							<label>Enter Email</label>
 							</div>
 							<div class="from-style">
-							<input type="text" name="mobile" class="form-control" required="" maxlength="10"/>
+							<input type="text" name="mobile" class="form-control" required="" pattern="[0-9]{10}" title="Enter a 10 digit mobile number" maxlength="10"/>
 							<label>Mobile Number</label>
 							</div>
 							<div class="from-style">
@@ -34,11 +36,11 @@
 							<label>Create Username</label>
 							</div>
 							<div class="from-style">
-							<input type="password" name="password" class="form-control" required=""/>
+							<input type="password" name="password" class="form-control" required="" pattern="[A-za-z0-9]{8,}" title="Atleast have 8 characters, special characters are not allowed"/>
 							<label>Create Password</label>
 							</div>
 							<div class="from-style">
-							<textarea name="address" class="form-control" required="" rows="5"></textarea>
+							<textarea name="address" class="form-control" required="" rows="5" maxlength="255"></textarea>
 							<label>Address</label>
 							</div>
 							<input type="submit" value="Sign Up" class="btn btn-primary btn-block"/>
