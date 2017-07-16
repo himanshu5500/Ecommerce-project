@@ -58,8 +58,8 @@ public class OrderController {
 		int order_id=(int)(Math.random()*10000000+Math.random()*7777);
 		for(Cart cartItem:cart_list){
 		OrderDetails orderDetails=new OrderDetails();
-		/*cartItem.setStatus("Y");
-		cartDAO.insertOrUpdateCart(cartItem);*/
+		cartItem.setStatus("Y");
+		cartDAO.insertOrUpdateCart(cartItem);
 		orderDetails.setCart_id(cartItem.getCart_id());
 		orderDetails.setMobile(mobile);
 		orderDetails.setName(name);
@@ -72,7 +72,6 @@ public class OrderController {
 		orderDetails.setStatus("processing");
 		orderDetails.setUsername(username);
 		orderDetailsDAO.insertOrUpdateOrderDetails(orderDetails);
-		cartDAO.deleteCartItem(cartItem);
 		}			
 		m.addObject("orderId",order_id);
 		return m;

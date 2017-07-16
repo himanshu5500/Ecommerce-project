@@ -33,5 +33,12 @@ public class HomeProductsDAO {
 		return list;
 	}
 	
+	public HomeProducts getHomeProducts(int srNo)
+	{
+		Session session=sessionFactory.openSession();
+		HomeProducts homeProduct=session.get(HomeProducts.class,srNo);
+		session.close();
+		return homeProduct;
+	}
 	
 }

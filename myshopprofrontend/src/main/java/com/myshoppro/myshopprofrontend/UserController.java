@@ -29,8 +29,16 @@ public class UserController {
 	@Autowired
 	CategoryDAO categoryDAO;
 	@RequestMapping("login")
-	public String login(){
-		return "Login";
+	public ModelAndView login(@RequestParam(value="id",required=false) String id)
+	{	ModelAndView m=new ModelAndView("Login");
+		if(id!=null){
+		if(id.equals("1"))
+			m.addObject("msg","Invalid Username or Password");
+		else if(id.equals("2"))
+			m.addObject("msg","You've been logged out");
+		
+		}
+		return m;	
 	}
 	
 	@RequestMapping("register")

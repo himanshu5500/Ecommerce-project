@@ -22,7 +22,7 @@ public class HomeProductsTestCase {
 	int i;
 		System.out.println("====Select an option====");
 		System.out.println("1. Insert homeProducts");
-		System.out.println("2. Delete homeProducts");
+		System.out.println("2. Get homeProducts");
 		System.out.println("3. Get homeProducts List");
 		System.out.println("Enter your choice : ");
 		i=input.nextInt();

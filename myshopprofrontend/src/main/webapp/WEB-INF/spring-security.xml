@@ -12,7 +12,6 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/security/spring-tx-4.2.xsd">
 	
 <http auto-config="true" use-expressions="true">
-		<intercept-url pattern="/admin**" access="hasRole('ROLE_ADMIN')"/>
 		<intercept-url pattern="/Product" access="hasRole('ROLE_ADMIN')"/>
 		<intercept-url pattern="/addProduct" access="hasRole('ROLE_ADMIN')"/>
 		<intercept-url pattern="/updateProduct" access="hasRole('ROLE_ADMIN')"/>
@@ -28,11 +27,17 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 		
 		
 		
-		<intercept-url pattern="/showCart" access="hasRole('ROLE_USER')"/>
-		<intercept-url pattern="/addToCart" access="hasRole('ROLE_USER')"/>
-		<intercept-url pattern="/updateCart" access="hasRole('ROLE_USER')"/>
-		<intercept-url pattern="/deleteCartItem" access="hasRole('ROLE_USER')"/>
-		<intercept-url pattern="/user**" access="hasRole('ROLE_USER')"/>
+		<intercept-url pattern="/showCart" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')"/>
+		<intercept-url pattern="/addToCart" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')"/>
+		<intercept-url pattern="/updateCart" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')"/>
+		<intercept-url pattern="/deleteCartItem" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')"/>
+		<intercept-url pattern="/myAccount" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')"/>
+		<intercept-url pattern="/changePass" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')"/>
+		<intercept-url pattern="/updateUser" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')"/>
+		<intercept-url pattern="/BuyNow" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')"/>
+		<intercept-url pattern="/checkOut" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')"/>
+		<intercept-url pattern="/myOrders" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')"/>
+		<intercept-url pattern="/placeOrder" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')"/>
 			
 		<!-- access denied page -->
 		<access-denied-handler error-page="/403" />
@@ -41,13 +46,12 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 		    default-target-url="/" 
 		    login-processing-url="/perform_login"
 		    authentication-success-forward-url="/login_success"
-			authentication-failure-url="/login?error" 
+			authentication-failure-url="/login?id=1" 
 			username-parameter="username"
 			password-parameter="password"/>
 		<logout logout-url="/perform_logout" 
 		invalidate-session="true"
-		logout-success-url="/login?logout"  />
-		<!-- enable csrf protection -->
+		logout-success-url="/login?id=2"  />
 		<csrf disabled="true"/>
 	</http>
 	
@@ -56,7 +60,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 		<authentication-provider>
 			<jdbc-user-service data-source-ref="dataSource"
 				users-by-username-query=
-					"select username,password, enabled from userdetails where username=?"
+					"select username,password,enabled from userdetails where username=?"
 				authorities-by-username-query=
 					"select username, role from userdetails where username =?  " />
 		</authentication-provider>
