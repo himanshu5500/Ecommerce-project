@@ -50,13 +50,20 @@ public class SupplierController {
 	
 	@RequestMapping("/deleteSupplier")
 	public ModelAndView deleteSupplier(@RequestParam("supId") int supId){
-		ModelAndView m=new ModelAndView("Supplier");
+		ModelAndView m=new ModelAndView();
 		Supplier supplier=supplierDAO.getSupplier(supId);
-		supplierDAO.deleteSupplier(supplier);
-		List<Supplier> list=supplierDAO.getSupplierDetails();
-		m.addObject("supDetails",list);
-		boolean flag=false;
-		m.addObject("flag",flag);
+		try{
+			supplierDAO.deleteSupplier(supplier);
+			m.setViewName("redirect:Supplier");
+			}
+		catch(Exception e){
+			List<Supplier> list=supplierDAO.getSupplierDetails();
+			m.addObject("supDetails",list);
+			boolean flag=false;
+			m.addObject("flag",flag);
+			m.addObject("warning","Edit the Assosiated Products First");
+			m.setViewName("Supplier");
+		}
 		return m;
 	}
 	

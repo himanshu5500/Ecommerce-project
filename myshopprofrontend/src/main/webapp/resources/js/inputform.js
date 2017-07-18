@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	 $("#warningModal").modal('show');	
 	if($("#sh").val()=="true"){
 		 $("#myModal").modal({backdrop: "static"});
 	}

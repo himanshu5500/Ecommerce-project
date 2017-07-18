@@ -26,10 +26,10 @@ public class ProductDAO {
 			session.saveOrUpdate(product);
 		}
 		
-		public Product getProduct(int catid)
+		public Product getProduct(int prod_id)
 		{
 			Session session=sessionFactory.openSession();
-			Product product=session.get(Product.class,catid);
+			Product product=session.get(Product.class,prod_id);
 			session.close();
 			return product;
 		}

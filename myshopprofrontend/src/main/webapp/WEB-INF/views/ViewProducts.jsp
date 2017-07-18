@@ -2,10 +2,10 @@
     pageEncoding="ISO-8859-1"%>
     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
-<html>
+<html ng-app="productApp" ng-controller="myCtrl">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>${catName}</title>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 <script>
 var app = angular.module('productApp', []);
@@ -19,8 +19,7 @@ app.controller('myCtrl', function($scope) {
 box-shadow:0 0 10px grey;}
 </style>
 <%@include file="header.jsp" %>
-<div class="container" ng-app="productApp" ng-controller="myCtrl"> 
-<input type="text" ng-model="searchProduct" placeholder="Search" class="form-control" style="margin-top:-1em;box-shadow:0 0 10px blue;border:1px solid blue;font-size:20px;"/><br/>
+<div class="container"> 
 <div class="col-sm-3" ng-repeat="product in products | filter:searchProduct">
     <div class="thumbnail">
       <a href="productDetails?proid={{product.pro_id}}">

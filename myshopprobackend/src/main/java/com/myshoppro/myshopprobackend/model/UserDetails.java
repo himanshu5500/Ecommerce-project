@@ -9,9 +9,15 @@ public class UserDetails {
 	@Id
 	private String username; 
 	private String full_name,password,role,email,address;
-	private int mobile;
+	private int mobile,cart_id;
 	private boolean enabled;
 	
+	public int getCart_id() {
+		return cart_id;
+	}
+	public void setCart_id(int cart_id) {
+		this.cart_id = cart_id;
+	}
 	public int getMobile() {
 		return mobile;
 	}

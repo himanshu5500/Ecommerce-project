@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Cart</title>
 <style>
 .container{margin-top: 4em;}
 .thumbnail{height:170px;}
@@ -14,6 +14,9 @@
 <div class="container">
 <table class="table">
 <div class="list-group-item list-group-item-info row"><h3><b>MY CART</b></h3></div>
+<c:if test="${cartSize==0}">
+<center><h3><b>Cart is Empty</b></h3></center>
+</c:if>
 <c:forEach items="${cartItems}" var="cartItem">
 <tr><td rowspan="2">
 <div class="thumbnail">
@@ -32,17 +35,22 @@
     <span class="glyphicon glyphicon-plus"></span></a>
     </div>
     </div>
+    <div class="col-sm-1"><span>&nbsp;</span></div>
+  
     <div class="col-sm-4"><a href="deleteCartItem?id=${cartItem.cart_item_id}" class="btn btn-danger btn-block">Remove</a>
-        </div></div></div></div>
+        </div></div>
     </td></tr>
 </c:forEach><tr><td colspan="3">
 <div class="row" style="padding:2em;">
-<div class="col-sm-offset-2 col-sm-3">
+<c:if test="${cartSize==0}">
 <a href="index" class="btn btn-success btn-block">Continue Shopping....</a>
-</div>
-<div class="col-sm-offset-2 col-sm-3">
+</c:if>
+<c:if test="${cartSize!=0}"><div class="col-sm-offset-2 col-sm-3">
+<a href="index" class="btn btn-success btn-block">Continue Shopping....</a>
+</div><div class="col-sm-2"><span>&nbsp;</span></div>
+<div class="col-sm-3">
 <a href="checkOut" class="btn btn-success btn-block">Check Out</a>
-</div>
+</div></c:if>
 </div></td></tr></table></div>
 <%@include file="/WEB-INF/views/Footer.jsp"%>
 </body>

@@ -22,7 +22,8 @@
   <param-name>contextConfigLocation</param-name>
   	<param-value>
   			/WEB-INF/spring-dispatcher-servlet.xml,
-			/WEB-INF/spring-security.xml
+			/WEB-INF/spring-security.xml,
+			/WEB-INF/webflow-config.xml
 	</param-value>
   </context-param>
   

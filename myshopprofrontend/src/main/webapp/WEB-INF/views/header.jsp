@@ -1,3 +1,4 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -22,6 +23,7 @@
       </button>
       <a class="navbar-brand" href="home">Home</a>
     </div>
+    
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Mobiles
@@ -57,8 +59,8 @@
         </ul></li> 
         <li><a href="aboutUs">About Us</a></li> 
       </ul>
+		
       <ul class="nav navbar-nav navbar-right">
-     
       <c:if test='<%=(Boolean)session.getAttribute("loggedIn")!=null&&(Boolean)session.getAttribute("loggedIn")==true%>'>
       <li><a href="<c:url value="/showCart"/>">
       <span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;&nbsp;Cart</a>
@@ -91,7 +93,13 @@
       </c:if>
       
       </ul>
+      <c:if test="${search!=null}">
+      <div class="navbar-form navbar-right form-group" >
+        	<input type="text" ng-model="searchProduct" class="form-control" placeholder="Search" style="width:100%">
+      	</div>
+      </c:if>
     </div>
+    
       
   </div>
 </nav>

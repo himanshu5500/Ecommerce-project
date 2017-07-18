@@ -18,8 +18,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.myshoppro.myshopprobackend.dao.CategoryDAO;
+import com.myshoppro.myshopprobackend.dao.OrderDetailsDAO;
 import com.myshoppro.myshopprobackend.dao.UserDetailsDAO;
+import com.myshoppro.myshopprobackend.model.Cart;
 import com.myshoppro.myshopprobackend.model.Category;
+import com.myshoppro.myshopprobackend.model.OrderDetails;
 import com.myshoppro.myshopprobackend.model.UserDetails;
 
 @Controller
@@ -28,6 +31,9 @@ public class UserController {
 	UserDetailsDAO userDetailsDAO;
 	@Autowired
 	CategoryDAO categoryDAO;
+	@Autowired
+	OrderDetailsDAO orderDetailsDAO;
+	
 	@RequestMapping("login")
 	public ModelAndView login(@RequestParam(value="id",required=false) String id)
 	{	ModelAndView m=new ModelAndView("Login");
@@ -85,6 +91,7 @@ public class UserController {
 		userDetails.setMobile(Integer.parseInt(user.get("mobile")));
 		userDetails.setEnabled(true);
 		userDetails.setRole("ROLE_USER");
+		userDetails.setCart_id(100);
 		userDetailsDAO.insertOrUpdateUserDetails(userDetails);
 		m.addObject("userCreate","Account Created");
 		m.setViewName("Login");
@@ -135,6 +142,7 @@ public class UserController {
 		m.addObject("user",userDetails);
 		return m;
 	}
+
 	@ModelAttribute
 	public void homeCatDetails(Model m){
 		List<Category> list=categoryDAO.getCategoryDetails();

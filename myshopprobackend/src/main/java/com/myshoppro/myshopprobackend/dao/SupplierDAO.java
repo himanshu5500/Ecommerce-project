@@ -23,10 +23,10 @@ public class SupplierDAO {
 			session.saveOrUpdate(supplier);
 		}
 		
-		public Supplier getSupplier(int catid)
+		public Supplier getSupplier(int sup_id)
 		{
 			Session session=sessionFactory.openSession();
-			Supplier supplier=session.get(Supplier.class,catid);
+			Supplier supplier=session.get(Supplier.class,sup_id);
 			session.close();
 			return supplier;
 		}

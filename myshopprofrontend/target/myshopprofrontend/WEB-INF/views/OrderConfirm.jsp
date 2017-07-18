@@ -11,19 +11,6 @@
 .thumbnail{height:100px;}
 </style>
 <%@include file="header.jsp" %>
-<script>
-$(document).ready(function(){
-	$("#deliveryDetails").hide();
-	$("#next").click(function(){
-		$("#prodList").hide(500);
-		$("#deliveryDetails").show(500);		
-	});
-	$("#goBack").click(function(){
-		$("#deliveryDetails").hide(500);
-		$("#prodList").show(500);		
-	});
-});
-</script>
 <div class="container">
 
 <div id="prodList">
@@ -50,44 +37,11 @@ $(document).ready(function(){
 <a href="showCart" class="btn btn-danger btn-block">Edit order</a>
 </div>
 <div class="col-sm-offset-2 col-sm-3">
-<button class="btn btn-danger btn-block tt" id="next">Next</button>
+<a href="shipping?cartId=${cartId}" class="btn btn-danger btn-block tt" id="next">Next</a>
 </div>
 </div></td></tr></table>
 </div>
-
-
-<div id="deliveryDetails" class="table-responsive">
-<table class="table"><tr><th colspan="2">
-<div class="list-group-item list-group-item-info">
-<center><h3><b>Delivery and Payment Details</b></h3></center></div></th></tr>
-				<form action="placeOrder" method="post">
-				<tr><th>Deliver To</th><td>
-				<input type="text" name="name" class="form-control" value="${user.full_name}" required maxlength="25"/></td>
-				</tr>
-				<tr><th>Mobile Number</th><td>
-				<input type="text" name="mobile" class="form-control" value="${user.mobile}" required pattern="[0-9]{10}" title="Enter a 10 digit mobile number" maxlength="10"/></td>
-				</tr>
-				<tr><th>Shipping Address</th><td>
-				<textarea name="address" rows="3" class="form-control" required maxlength="255">${user.address}</textarea></td>
-				</tr>
-				<tr><th>Total Payable Amount</th><td>
-				<i class="fa fa-inr"></i>${totalAmount}
-				</td></tr>
-				<tr><th>Payment Mode</th><td>
-				<label class="radio-inline"><input type="radio" name="payMode" value="Credit Card" required/>Credit Card</label>
-				<label class="radio-inline"><input type="radio" name="payMode" value="Internet Banking" required/>Internet Banking</label>
-				<label class="radio-inline"><input type="radio" name="payMode" value="Cash On Delivery" required/>Cash On Delivery</label></td></tr>				
-				<tr><td colspan="2">
-<div class="row">
-<div class="col-sm-offset-2 col-sm-3">
-<span class="btn btn-danger btn-block tt" id="goBack">Go Back</span>
 </div>
-<div class="col-sm-offset-2 col-sm-3">
-<input type="submit" value="Place Order" class="btn btn-danger btn-block"/>
-</form>
-</div>
-</div></td></tr>				
-</table></div></div>
 <%@include file="/WEB-INF/views/Footer.jsp"%>
 </body>
 </html>

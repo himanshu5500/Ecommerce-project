@@ -45,13 +45,19 @@ public class CategoryController {
 	
 	@RequestMapping("/deleteCategory")
 	public ModelAndView deleteCategory(@RequestParam("catId") int catId){
-		ModelAndView m=new ModelAndView("Category");
+		ModelAndView m=new ModelAndView();
 		Category category=categoryDAO.getCategory(catId);
-		categoryDAO.deleteCategory(category);
-		List<Category> list=categoryDAO.getCategoryDetails();
-		m.addObject("catDetails",list);
-		boolean flag=false;
-		m.addObject("flag",flag);
+		try{categoryDAO.deleteCategory(category);
+		m.setViewName("redirect:Category");
+		}
+		catch(Exception e){
+			List<Category> list=categoryDAO.getCategoryDetails();
+			m.addObject("catDetails",list);
+			boolean flag=false;
+			m.addObject("flag",flag);
+			m.addObject("warning","Edit the Assosiated Products First");
+			m.setViewName("Category");
+		}
 		return m;
 	}
 	

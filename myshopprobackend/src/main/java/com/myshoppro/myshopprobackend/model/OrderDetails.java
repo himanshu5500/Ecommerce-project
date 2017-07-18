@@ -1,17 +1,24 @@
 package com.myshoppro.myshopprobackend.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
-public class OrderDetails {
+public class OrderDetails implements Serializable {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
-	private String pay_mode,ship_address,status,name,username,prod_name;
-	private int order_id,cart_id,order_amount,mobile,prod_id;
+	private int cart_id,order_id;
+	private String username;
+	@OneToOne
+	private Shipping shipping;
+	@OneToOne
+	private Billing billing;
 	
 	public String getUsername() {
 		return username;
@@ -25,23 +32,11 @@ public class OrderDetails {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getProd_name() {
-		return prod_name;
+	public int getCart_id() {
+		return cart_id;
 	}
-	public void setProd_name(String prod_name) {
-		this.prod_name = prod_name;
-	}
-	public int getProd_id() {
-		return prod_id;
-	}
-	public void setProd_id(int prod_id) {
-		this.prod_id = prod_id;
-	}
-	public int getMobile() {
-		return mobile;
-	}
-	public void setMobile(int mobile) {
-		this.mobile = mobile;
+	public void setCart_id(int cart_id) {
+		this.cart_id = cart_id;
 	}
 	public int getOrder_id() {
 		return order_id;
@@ -49,41 +44,17 @@ public class OrderDetails {
 	public void setOrder_id(int order_id) {
 		this.order_id = order_id;
 	}
-	public int getCart_id() {
-		return cart_id;
+	public Shipping getShipping() {
+		return shipping;
 	}
-	public void setCart_id(int cart_id) {
-		this.cart_id = cart_id;
+	public void setShipping(Shipping shipping) {
+		this.shipping = shipping;
 	}
-	public String getPay_mode() {
-		return pay_mode;
+	public Billing getBilling() {
+		return billing;
 	}
-	public void setPay_mode(String pay_mode) {
-		this.pay_mode = pay_mode;
+	public void setBilling(Billing billing) {
+		this.billing = billing;
 	}
-	public String getShip_address() {
-		return ship_address;
-	}
-	public void setShip_address(String ship_address) {
-		this.ship_address = ship_address;
-	}
-	public String getStatus() {
-		return status;
-	}
-	public void setStatus(String status) {
-		this.status = status;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public int getOrder_amount() {
-		return order_amount;
-	}
-	public void setOrder_amount(int order_amount) {
-		this.order_amount = order_amount;
-	}
-	
+
 }

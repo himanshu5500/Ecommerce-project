@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 <style>
 td,th,input{font-size: 1.2em;}
-.thumbnail{height:300px;}
+.thumbnail{height:250px;}
 </style>
 <%@include file="header.jsp" %>
 
@@ -16,8 +16,8 @@ td,th,input{font-size: 1.2em;}
 <br/>
 <div class="list-group-item list-group-item-info">
 <center><h3><b>My Orders</b></h3></center></div>
-<c:forEach items="${orderList}" var="orderItem">
-<br/>
+<c:forEach items="${cartItems}" var="orderItem">
+<br/><a href="Details?id=${orderItem.cart_item_id}">
 <div style="box-shadow:0 0 10px grey;" class="table-responsive">
 <div class="thumbnail col-sm-4">
 <img src='<c:url value="/resources/images/${orderItem.prod_id}"/>.jpg' alt="${orderItem.prod_name}" style="height:100%;"/>
@@ -27,14 +27,10 @@ td,th,input{font-size: 1.2em;}
 	<h3>${orderItem.prod_name}</h3>
 	</td>
 	</tr>
-  <tr><td colspan="2"><h4><b>Order Id : ${orderItem.order_id}</b></h4></td></tr>
-  <tr><th>Shipping Address</th><th>Status</th></tr>
-  <tr><td style="width:450px">${orderItem.name}<br/>
-  ${orderItem.ship_address}
-  </td><td>${orderItem.status}</td></tr>
-  <tr><th colspan="2">Payment Information</th></tr>
-<tr><td><b>Payment Mode : </b>${orderItem.pay_mode}</td><td><b>Amount : <i class="fa fa-inr"></i>${orderItem.order_amount}</b>
-  </td></tr></table></div></div>
+  <tr><td colspan="2"><h4><b>Order Id : ${order_id}</b></h4></td></tr>
+  <tr><td colspan="2"><h4><b>Quantity : ${orderItem.quantity}</b></h4></td></tr>
+<tr><td><b>Status : </b>Processing</td><td><b>Amount : <i class="fa fa-inr"></i>${orderItem.price*orderItem.quantity}</b>
+  </td></tr></table></div></div></a>
 </c:forEach>
 </div><br/>
 <%@include file="/WEB-INF/views/Footer.jsp"%>

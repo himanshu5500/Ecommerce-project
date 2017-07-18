@@ -31,20 +31,5 @@ public class UserDetailsDAO {
 		return userDetails;
 	}
 	
-	/*public List<UserDetails> getUserDetailsDetails()
-	{
-		Session session=sessionFactory.openSession();
-		List<UserDetails> list=session.createQuery("from UserDetails").list();
-		session.close();
-		return list;
-	}
-	
-	@Transactional
-	public void deleteUserDetails(UserDetails userDetails)
-	{
-		sessionFactory.getCurrentSession().delete(userDetails);
-	}
-*/	
-	
 
 }

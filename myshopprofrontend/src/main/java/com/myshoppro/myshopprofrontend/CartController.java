@@ -15,9 +15,11 @@ import org.springframework.web.servlet.ModelAndView;
 import com.myshoppro.myshopprobackend.dao.CartDAO;
 import com.myshoppro.myshopprobackend.dao.CategoryDAO;
 import com.myshoppro.myshopprobackend.dao.ProductDAO;
+import com.myshoppro.myshopprobackend.dao.UserDetailsDAO;
 import com.myshoppro.myshopprobackend.model.Cart;
 import com.myshoppro.myshopprobackend.model.Category;
 import com.myshoppro.myshopprobackend.model.Product;
+import com.myshoppro.myshopprobackend.model.UserDetails;
 
 @Controller
 public class CartController {
@@ -27,12 +29,16 @@ public class CartController {
 	CartDAO cartDAO;
 	@Autowired
 	CategoryDAO categoryDAO;
+	@Autowired
+	UserDetailsDAO userDetailsDAO;
+	
 	@RequestMapping("/showCart")
 	public ModelAndView showCart(HttpSession session){
 		ModelAndView m=new ModelAndView("Cart");
 		String username=(String)session.getAttribute("username");
 		List<Cart> cart_list=cartDAO.getCartItems(username);
 		m.addObject("cartItems", cart_list);
+		m.addObject("cartSize", cart_list.size());
 		return m;
 	}
 	@RequestMapping("/addToCart")
@@ -40,6 +46,7 @@ public class CartController {
 	{	ModelAndView m=new ModelAndView("Cart");
 		boolean notexist=true;
 		String username=(String)session.getAttribute("username");
+		UserDetails userDetails=userDetailsDAO.getUserDetails(username);
 		List<Cart> cart_list=cartDAO.getCartItems(username);
 		for(Cart cart:cart_list)
 			if(cart.getProd_id()==proId){
@@ -49,7 +56,11 @@ public class CartController {
 			}
 		if(notexist){
 		Cart cart=new Cart();
-		cart.setCart_id(1001);
+		if(cart_list.size()==0){
+			userDetails.setCart_id(userDetails.getCart_id()+1);
+			userDetailsDAO.insertOrUpdateUserDetails(userDetails);
+		}
+		cart.setCart_id(userDetails.getCart_id());
 		cart.setQuantity(1);
 		cart.setStatus("N");
 		cart.setUsername(username);
@@ -113,6 +124,21 @@ public class CartController {
 		cart.setPrice(product.getPro_price());
 		cartDAO.insertOrUpdateCart(cart);
 		}
+		return m;
+	}
+	@RequestMapping("/checkOut")
+	public ModelAndView checkOut(HttpSession session){
+		ModelAndView m=new ModelAndView("OrderConfirm");
+		String username=(String)session.getAttribute("username");
+		List<Cart> cart_list=cartDAO.getCartItems(username);
+		int totalAmount=0,cartId=0;
+		for(Cart cart:cart_list){
+			totalAmount+=cart.getQuantity()*cart.getPrice();
+			cartId=cart.getCart_id();
+		}
+		m.addObject("totalAmount",totalAmount);
+		m.addObject("cartItems", cart_list);
+		m.addObject("cartId", cartId);
 		return m;
 	}
 	

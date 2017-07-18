@@ -1,7 +1,7 @@
 body{
 	font-family: Book Antiqua;
 }
-.t{
+.headStyle{
 	background-color: rgb(84,147,216);
 	text-align: center;
 	font-weight: 900;
@@ -9,47 +9,22 @@ body{
 	font-size: 40px;
 	padding:25px 50px;
 }
-.tt{
+.myBoldFont{
 	font-weight: 900;
 	font-family: Bookman Old Style;
 	font-size:16px;	
 }
-.ttt{
+.myFont{
 	font-family: Bookman Old Style;
 	font-size:16px;
 }
 
-.tttt{
+.myBoldFontB{
 	font-weight: 900;
 	font-family: Bookman Old Style;
 	font-size:25px;	
 	margin-top : 8px;
-}/*
-.nav-tabs li a {
-      color: #777;
-  }  
-  .navbar {
-      font-family: Montserrat, sans-serif;
-      margin-bottom: 0;
-      background-color: #403870;
-      border: 0;
-      font-size: 11px !important;
-      letter-spacing: 4px;
-  }
-  .navbar li a, .navbar .navbar-brand { 
-      color: #c0c0c0!important;
-  }
-  .navbar-nav li a:hover {
-      color: #fff !important;
-  }
-  .navbar-nav li.active a {
-      color: #fff !important;
-      background-color: #8c5999!important;
-  }
-  .navbar-default .navbar-toggle {
-      border-color: transparent;
-  }*/
-  
+} 
   
   .footer2{
   background-color: black;
@@ -126,20 +101,7 @@ color:#fff;
 background:rgba(0, 0, 0, 0.7);
 text-align: center;
 }
-/*#myNavbar li ul{
-	display:block;
-	position: absolute;
-	
-	    visibility: hidden;
-	    background-color: #fff;
-}
-#myNavbar li:hover ul{
-	position: relative;
-	    visibility: visible;
-	    //background-color: #fff;
-}
 
-*/
 .img-circle{
 	background-color:grey;
 	color:#fff;

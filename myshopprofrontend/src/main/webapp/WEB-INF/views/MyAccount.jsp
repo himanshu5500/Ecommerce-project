@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>My Account</title>
 <style>.panel-heading,td,th{font-size: 2em;}
 input,textarea{
 border:0;background: white; width:400px
@@ -19,27 +19,27 @@ border:0;background: white; width:400px
 <div class="modal fade" id="myModal" role="dialog">
 				<div class="modal-dialog">
 					<div class="modal-content">
-						<div class="modal-header t">
+						<div class="modal-header headStyle">
 					    Change Password
 					    </div>
 						<div class="modal-body" style="padding:40px 50px;">
 							<form action="changePass" method="post" class="form-horizontal">
 							<div class="form-group">
-								<label class="control-label col-sm-5 tt" for="currentPass">Current Password</label>
+								<label class="control-label col-sm-5 myBoldFont" for="currentPass">Current Password</label>
 								<div class="col-sm-7">
 								<input type="text" name="currentPass" id="currentPass" class="form-control" required pattern="[A-za-z0-9]{8,}" title="Atleast have 8 characters, special characters are not allowed"/>
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="control-label col-sm-5 tt" for="newPass">New Password</label>
+								<label class="control-label col-sm-5 myBoldFont" for="newPass">New Password</label>
 								<div class="col-sm-7">
 								<input type="text" name="newPass" id="newPass" class="form-control" required pattern="[A-za-z0-9]{8,}" title="Atleast have 8 characters, special characters are not allowed"/>
 								</div>
 							</div>
 							<div class="col-sm-6">
-							<input type="submit" value="Change" class="btn btn-success btn-block tt"/></div>
+							<input type="submit" value="Change" class="btn btn-success btn-block myBoldFont"/></div>
 							<div class="col-sm-6">
-							<button class="btn btn-danger btn-block tt" data-dismiss="modal">Cancel</button>
+							<button class="btn btn-danger btn-block myBoldFont" data-dismiss="modal">Cancel</button>
 							</div><br/>
 							</form>
 						</div>
@@ -69,7 +69,7 @@ border:0;background: white; width:400px
 				<tr><th>Username</th><td colspan="2">${user.username}</td></tr>
 				<tr><th>Password</th>
 					<td colspan="2">
-					<button type="button" class="btn btn-success btn-sm tt" id="myBtn">Change password</button> 
+					<button type="button" class="btn btn-success btn-sm myBoldFont" id="myBtn">Change password</button> 
 					<b>${info}</b>
 					</td>
 					</tr>

@@ -35,6 +35,12 @@ public class PageController {
 		m.addObject("homeProducts",list);
 		return m;
 	}
+	
+	@RequestMapping("header")
+	public String header(){
+		return "header";
+	}
+	
 	@RequestMapping("/homeProducts")
 	public ModelAndView homeProduct(@ModelAttribute("homeProduct") HomeProducts homeProduct){
 		ModelAndView m=new ModelAndView("HomeProducts");

@@ -103,6 +103,8 @@ public class ProductController {
 		Gson g=new Gson();
 		String product_list=g.toJson(pro_list);
 		m.addObject("proDetails",product_list);
+		m.addObject("catName",category.getCat_name());
+		m.addObject("search","show");
 		return m;	
 	}
 	

@@ -51,4 +51,28 @@ public class CartDAO {
 		sessionFactory.getCurrentSession().delete(cart);
 	}
 	
+	public List<Cart> getPurchasedCartItems(String username)
+	{
+		Session session=sessionFactory.openSession();
+		Query query=session.createQuery("from Cart where username=:username and status='Y'");
+		query.setParameter("username",username);
+		List<Cart> list=query.list();
+		session.close();
+		return list;
+	}
+	
+	@Transactional
+	public void cartFinal(String username)
+	{
+		Session session=sessionFactory.getCurrentSession();
+		Query query=session.createQuery("from Cart where username=:username and status='N'");
+		query.setParameter("username",username);
+		List<Cart> list=query.list();
+		for(Cart cart:list){
+			cart.setStatus("Y");
+			session.saveOrUpdate(cart);
+		}
+	}
+
+	
 }

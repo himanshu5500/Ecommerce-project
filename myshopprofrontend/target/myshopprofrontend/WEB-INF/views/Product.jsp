@@ -16,8 +16,7 @@
 	<div class="panel-group">
 		<div class="panel panel-primary">
 			<div class="panel-heading "><button type="button" class="btn btn-danger btn-sm tt pull-right" id="myBtn">Add New Product</button>
-			<span class="tttt">Product Details</span>
-				
+			<span class="tttt">Product Details</span>				
 			</div>
 			<div class="modal fade" id="myModal" role="dialog">
 				<div class="modal-dialog">
@@ -31,38 +30,38 @@
 <div class="form-group">
 <label class="control-label col-sm-5 tt" for="catName">Category</label>
 <div class="col-sm-7">
-<form:select path="category.cat_id" id="catName" class="form-control" required>
+<form:select path="category.cat_id" id="catName" class="form-control">
 <form:option value="0" label="----------- Select Category -----------"/>
 <form:options items="${catlist}"/>
 </form:select></div></div>
 <div class="form-group">
 <label class="control-label col-sm-5 tt" for="proName">Product Name</label>
 <div class="col-sm-7">
-<form:input path="pro_name" class="form-control" id="proName" required maxlength="25"/>
+<form:input path="pro_name" class="form-control" id="proName"/>
 </div></div>
 <div class="form-group">
 <label class="control-label col-sm-5 tt" for="proDesc">Product description</label>
 <div class="col-sm-7">
-<form:textarea path="pro_desc" class="form-control" id="proDesc" rows="5" maxlength="255" required/>
+<form:textarea path="pro_desc" class="form-control" id="proDesc"/>
 </div></div>
 <div class="form-group">
 <label class="control-label col-sm-5 tt" for="proImage">Upload image</label>
 <div class="col-sm-7">
-<form:input type="file" path="pro_image" class="form-control" id="proImage"  required/>
+<form:input type="file" path="pro_image" class="form-control" id="proImage"/>
 </div></div>
 <div class="form-group">
 <label class="control-label col-sm-5 tt" for="proPrice">Product Price</label>
 <div class="col-sm-7">
-<form:input path="pro_price" class="form-control" id="proPrice" required pattern="[1-9]{1,}[0]" title="Price should be greater than zero or should not start with zero" maxlength="15"/>
+<form:input path="pro_price" class="form-control" id="proPrice"/>
 </div></div>
 <div class="form-group">
 <label class="control-label col-sm-5 tt" for="proQuantity">Product Quantity</label>
 <div class="col-sm-7">
-<form:input path="pro_quantity" class="form-control" id="proQuantity" required pattern="[1-9]{1,}[0]" title="Quantity should be greater than zero or should not start with zero"/>
+<form:input path="pro_quantity" class="form-control" id="proQuantity"/>
 </div></div>
 <div class="form-group"><label class="control-label col-sm-5 tt" for="supName">Supplier</label>
 <div class="col-sm-7">
-<form:select path="supplier.sup_id" class="form-control" id="supName"  required>
+<form:select path="supplier.sup_id" class="form-control" id="supName">
 <form:option value="0" label="----------- Select Supplier -----------"/>
 <form:options items="${suplist}"/>
 </form:select>
@@ -95,5 +94,6 @@
 </div>
 </div>
 </div>
+<%@include file="/WEB-INF/views/Footer.jsp"%>
 </body>
 </html>

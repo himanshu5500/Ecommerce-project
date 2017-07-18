@@ -20,19 +20,26 @@ public class OrderDetailsDAO {
 	}
 	
 	@Transactional
-	public void insertOrUpdateOrderDetails(OrderDetails orderDetails)
+	public void insertOrderDetails(OrderDetails orderDetails)
 	{
 		Session session=sessionFactory.getCurrentSession();
-		session.saveOrUpdate(orderDetails);
-	}
+		session.save(orderDetails.getShipping());
+		session.save(orderDetails.getBilling());
+		session.save(orderDetails);
+		}
 	
-	public List<OrderDetails> getOrderDetailsList(String username)
+	public OrderDetails getOrderDetails(String username,int cart_id)
 	{
 		Session session=sessionFactory.openSession();
-		Query q=session.createQuery("from OrderDetails where username=:username");
+		Query q=session.createQuery("from OrderDetails where username=:username and cart_id=:cart_id");
 		q.setParameter("username", username);
+		q.setParameter("cart_id", cart_id);
 		List<OrderDetails> list=q.list();
 		session.close();
-		return list;
+		OrderDetails orderDetails=null;
+		for(OrderDetails item:list)
+			orderDetails=item;
+		return orderDetails;
 	}
+	
 }

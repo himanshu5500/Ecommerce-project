@@ -5,36 +5,35 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>My Orders</title>
 <style>
 td,th,input{font-size: 1.2em;}
-.thumbnail{height:300px;}
+.thumbnail{height:250px;}
 </style>
 <%@include file="header.jsp" %>
 
 <div class="container">
 <br/>
 <div class="list-group-item list-group-item-info">
-<center><h3><b>My Orders</b></h3></center></div>
-<c:forEach items="${orderList}" var="orderItem">
-<br/>
+<center><h2><b>My Orders</b></h2></center></div>
+<c:if test="${listSize==0}">
+<br/><center><h2><b>Nothing to Show</b></h2></center>
+</c:if>
+<c:forEach items="${list}" var="orderItem">
+<br/><a href="Details?id=${orderItem.key.cart_item_id}">
 <div style="box-shadow:0 0 10px grey;" class="table-responsive">
 <div class="thumbnail col-sm-4">
-<img src='<c:url value="/resources/images/${orderItem.prod_id}"/>.jpg' alt="${orderItem.prod_name}" style="height:100%;"/>
+<img src='<c:url value="/resources/images/${orderItem.key.prod_id}"/>.jpg' alt="${orderItem.key.prod_name}" style="height:100%;"/>
 </div><div class="col-sm-8">
 <table class="table">
 <tr><td colspan="2">
-	<h3>${orderItem.prod_name}</h3>
+	<h3>${orderItem.key.prod_name}</h3>
 	</td>
 	</tr>
-  <tr><td colspan="2"><h4><b>Order Id : ${orderItem.order_id}</b></h4></td></tr>
-  <tr><th>Shipping Address</th><th>Status</th></tr>
-  <tr><td style="width:450px">${orderItem.name}<br/>
-  ${orderItem.ship_address}
-  </td><td>${orderItem.status}</td></tr>
-  <tr><th colspan="2">Payment Information</th></tr>
-<tr><td><b>Payment Mode : </b>${orderItem.pay_mode}</td><td><b>Amount : <i class="fa fa-inr"></i>${orderItem.order_amount}</b>
-  </td></tr></table></div></div>
+  <tr><td colspan="2"><h4><b>Order Id : ${orderItem.value}</b></h4></td></tr>
+  <tr><td colspan="2"><h4><b>Quantity : ${orderItem.key.quantity}</b></h4></td></tr>
+<tr><td><b>Status : </b>Processing</td><td><b>Amount : <i class="fa fa-inr"></i>${orderItem.key.price*orderItem.key.quantity}</b>
+  </td></tr></table></div></div></a>
 </c:forEach>
 </div><br/>
 <%@include file="/WEB-INF/views/Footer.jsp"%>

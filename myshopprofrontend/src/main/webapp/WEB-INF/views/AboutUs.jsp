@@ -5,12 +5,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>About Us</title>
 <style>
 .backImg{
 background-image: url('<c:url value="/resources/images/about.jpg"/>');
-height:28em;
+height:28vw;
 background-size: 100%;
-padding-top:4em;
+padding-top:4vw;
 }
 .contactBox{
 color:#fff;
@@ -20,12 +21,12 @@ box-shadow:0 0 10px grey;
 </style>
 <%@include file="/WEB-INF/views/header.jsp"%>
 <div class="container-fluid backImg text-center">
-<span style="color:#fff;font-family: Forte;font-size: 14em;">About Us</span>
-</div>
+<span style="color:#fff;font-family: Forte;font-size: 14vw;">About Us</span>
+</div><br/>
 <div class="container text-center">
-<span style="font-family:Edwardian Script ITC;font-weight:900;font-size:50px;">My Shop Pro is Leading Brand among E-Commerce Websites. Our company provide excellent services. Good Quality products, Faster Delivery, a variety of Products and replacement and refund options. Our Product come from a verified supplier with warranty.
+<span style="font-family:Edwardian Script ITC;font-weight:900;font-size:3.5vw;">My Shop Pro is Leading Brand among E-Commerce Websites. Our company provide excellent services. Good Quality products, Faster Delivery, a variety of Products and replacement and refund options. Our Product come from a verified supplier with warranty.
 </span></div><br/><br/><br/><br/>
-<center><span style="font-family: Forte;font-size:100px;">Contact Us</span>
+<center><span style="font-family: Forte;font-size:7.5vw;">Contact Us</span>
   <div style="width:600px;border:2px solid red"></div></center><br/><br/>
 <div class="row"><center>
 <div class="col-sm-4" >

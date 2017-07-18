@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+
+<var name="shipping" class="com.myshoppro.myshopprobackend.model.Shipping"/>
+<var name="billing" class="com.myshoppro.myshopprobackend.model.Billing"/>
+
+<on-start>
+	<evaluate expression="orderDetailsWebFlow.initFlow()" result="flowScope.orderDetails"/>
+</on-start>
+
+	<view-state id="start" view="OrderShipping.jsp" model="flowScope.orderDetails" >
+	<on-entry>
+		<set name="flowScope.orderDetails.shipping" value="shipping"/>
+		<set name="flowScope.orderDetails.billing" value="billing"/>
+		<set name="flowScope.orderDetails.cart_id" value="requestParameters.cartId"/>
+	</on-entry>
+		<transition on="event1" to="billingPage"></transition>
+		<transition on="back" to="ThanksPage"></transition>
+	</view-state>
+	
+	
+	<view-state id="billingPage" view="OrderBilling.jsp" model="flowScope.orderDetails"> 
+	<transition on="event2" to="addDetail"></transition>
+		<transition on="back" to="start"></transition>
+	</view-state>
+	
+	
+	<action-state id="addDetail">
+	<evaluate expression="orderDetailsWebFlow.addOrderDetails(flowScope.orderDetails)"></evaluate>
+	<transition on="success" to="thanks">
+	</transition>
+	</action-state>
+	
+	<end-state id="thanks" view="PurchaseSummary.jsp"/>
+
+	
+	
+</flow>

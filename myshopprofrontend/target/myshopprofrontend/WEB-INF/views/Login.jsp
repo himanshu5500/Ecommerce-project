@@ -15,8 +15,8 @@
 <%@include file="/WEB-INF/views/header.jsp"%>
 <div class="container-fluid loginback">
 <div class="container col-sm-4 col-sm-offset-4 loginform">
-							<c:if test="${userCreate!=null}"><br/><br/>
-							<span class="msg">${userCreate}</span>
+							<c:if test="${userCreate!=null||msg!=null}"><br/><br/>
+							<span class="msg">${userCreate}${msg}</span>
 							</c:if>
 							<h1>Sign In</h1>
 							<form action="perform_login" method="post" class="form-horizontal">

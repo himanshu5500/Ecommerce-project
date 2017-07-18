@@ -60,10 +60,9 @@
       <ul class="nav navbar-nav navbar-right">
      
       <c:if test='<%=(Boolean)session.getAttribute("loggedIn")!=null&&(Boolean)session.getAttribute("loggedIn")==true%>'>
-      <c:if test='<%=(String)session.getAttribute("user")!=null&&session.getAttribute("user").equals("user")%>'>
       <li><a href="<c:url value="/showCart"/>">
       <span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;&nbsp;Cart</a>
-      </li></c:if>
+      </li>
       <c:if test='<%=(String)session.getAttribute("user")==null%>'>
       <li class="dropdown">
       <a  class="dropdown-toggle" data-toggle="dropdown" href="#">Admin Operations <span class="caret"></span>
@@ -71,6 +70,7 @@
       <li><a href="<c:url value="/Category"/>">Manage Category</a></li>
       <li><a href="<c:url value="/Product"/>">Manage Products</a></li>
       <li><a href="<c:url value="/Supplier"/>">Manage Supplier</a></li>
+      <li><a href="<c:url value="/homeProducts"/>">Manage HomeProducts</a></li>
       </ul></a>
       </li></c:if>
       <li class="dropdown">
@@ -79,9 +79,7 @@
        <span class="caret"></span></a>
         <ul class="dropdown-menu">
          <li><a href="<c:url value="/myAccount"/>">My Account</a></li>
-         <c:if test='<%=(String)session.getAttribute("user")!=null&&session.getAttribute("user").equals("user")%>'>
          <li><a href="<c:url value="/myOrders"/>">My Orders</a></li>
-         </c:if>
          <li><a href="<c:url value="/perform_logout"/>">
          <span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
         </ul>
