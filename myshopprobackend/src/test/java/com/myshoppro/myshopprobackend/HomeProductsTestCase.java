@@ -1,5 +1,6 @@
 package com.myshoppro.myshopprobackend;
 
+import java.util.List;
 import java.util.Scanner;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -17,17 +18,6 @@ public class HomeProductsTestCase {
 	HomeProductsDAO homeProductsDAO=(HomeProductsDAO)context.getBean("homeProductsDAO");
 	ProductDAO productDAO=(ProductDAO)context.getBean("productDAO");
 	HomeProducts homeProducts;
-	Scanner input=new Scanner(System.in);
-	int i;
-		System.out.println("====Select an option====");
-		System.out.println("1. Insert homeProducts");
-		System.out.println("2. Get homeProducts");
-		System.out.println("3. Get homeProducts List");
-		System.out.println("Enter your choice : ");
-		i=input.nextInt();
-
-		switch(i){
-		case 1:
 			int srNo=1;
 			for(int j=1;j<3;j++){
 				for(int l=1;l<3;l++){
@@ -38,13 +28,17 @@ public class HomeProductsTestCase {
 			homeProducts.setProduct(productDAO.getProduct(2));
 			homeProductsDAO.insertOrUpdateHomeProducts(homeProducts);
 			}}}
-			System.out.println("HomeProducts Inserted");
+			System.out.println("Home Products Added");
 			
-			break;
-		default:
-			System.out.println("Invalid operation");
-		}
-		input.close();
-		context.close();
+			homeProducts=homeProductsDAO.getHomeProducts(2);
+			System.out.println("Home Product Retrieve");
+			System.out.println(homeProducts.getBarNumber()+" "+homeProducts.getProduct().getPro_name());
+			
+			List<HomeProducts> list=homeProductsDAO.getHomeProductsList();
+			System.out.println("Home Products list Retrieve");
+			for(HomeProducts item:list)
+				System.out.println(item.getBarNumber()+" "+item.getProduct().getPro_name());
+				
+			context.close();
 	}
 }
