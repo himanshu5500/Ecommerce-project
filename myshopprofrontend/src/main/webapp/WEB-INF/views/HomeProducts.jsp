@@ -38,6 +38,9 @@
 <tr><th colspan="3"><div class="list-group-item list-group-item-info">
 <center><h3><b>Trending Products</b></h3></center></div></th></tr>
 <tr><th>Slide Number</th><th>Product Name</th><th>Operation</th></tr>
+<c:if test="${homeProducts.size()==0}">
+<tr><td colspan="3" align="center"><h2>Nothing to show..add a Product and run the Homeproduct test case first</h2></td></tr>
+</c:if>
 <c:forEach items="${homeProducts}" var="homeProduct">
 <c:if test="${homeProduct.barNumber<200}">
 <tr>
@@ -50,6 +53,9 @@
 <tr><th colspan="3"><div class="list-group-item list-group-item-info">
 <center><h3><b>New Launched Products</b></h3></center></div></th></tr>
 <tr><th>Slide Number</th><th>Product Name</th><th>Operation</th></tr>
+<c:if test="${homeProducts.size()==0}">
+<tr><td colspan="3" align="center"><h2>Nothing to show..add a Product and run the Homeproduct test case first</h2></td></tr>
+</c:if>
 <c:forEach items="${homeProducts}" var="homeProduct">
 <c:if test="${homeProduct.barNumber>200}">
 <tr>

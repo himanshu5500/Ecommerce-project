@@ -19,16 +19,21 @@ public class HomeProductsTestCase {
 	ProductDAO productDAO=(ProductDAO)context.getBean("productDAO");
 	HomeProducts homeProducts;
 			int srNo=1;
-			for(int j=1;j<3;j++){
+			try{for(int j=1;j<3;j++){
 				for(int l=1;l<3;l++){
 					for(int k=1;k<5;k++){
 			homeProducts=new HomeProducts();
 			homeProducts.setSrNo(srNo++);
 			homeProducts.setBarNumber(j*100+l);
-			homeProducts.setProduct(productDAO.getProduct(2));
+			homeProducts.setProduct(productDAO.getProductDetails().get(0));
 			homeProductsDAO.insertOrUpdateHomeProducts(homeProducts);
 			}}}
 			System.out.println("Home Products Added");
+			}
+			catch(Exception e)
+			{
+				System.out.println("Add a product first");
+			}
 			
 			homeProducts=homeProductsDAO.getHomeProducts(2);
 			System.out.println("Home Product Retrieve");

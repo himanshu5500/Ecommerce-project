@@ -45,6 +45,9 @@ box-shadow:0 0 10px grey;}
 <div id="HomeACarousel" class="carousel slide" data-ride="carousel" data-interval="2400">
     <div class="carousel-inner">
     <div class="item active">
+      <c:if test="${homeProducts.size()==0}">
+		<center><h1>Nothing to show..Contact to Admin</h1></center>
+      </c:if>
       <c:forEach items="${homeProducts}" var="homeProduct">
       <c:if test="${homeProduct.barNumber==101}">
 	<div class="col-sm-3">
@@ -62,6 +65,9 @@ box-shadow:0 0 10px grey;}
   </c:forEach>
 </div>
 <div class="item">
+      <c:if test="${homeProducts.size()==0}">
+		<center><h1>Nothing to show..Contact to Admin</h1></center>
+      </c:if>
       <c:forEach items="${homeProducts}" var="homeProduct">
       <c:if test="${homeProduct.barNumber==102}">
 	<div class="col-sm-3">
@@ -96,6 +102,9 @@ box-shadow:0 0 10px grey;}
 <div id="HomeBCarousel" class="carousel slide" data-ride="carousel" data-interval="2400">
     <div class="carousel-inner">
     <div class="item active">
+      <c:if test="${homeProducts.size()==0}">
+		<center><h1>Nothing to show..Contact to Admin</h1></center>
+      </c:if>
       <c:forEach items="${homeProducts}" var="homeProduct">
       <c:if test="${homeProduct.barNumber==201}">
 	<div class="col-sm-3">
@@ -113,6 +122,9 @@ box-shadow:0 0 10px grey;}
   </c:forEach>
 </div>
 <div class="item">
+      <c:if test="${homeProducts.size()==0}">
+		<center><h1>Nothing to show...Contact to Admin</h1></center>
+      </c:if>
       <c:forEach items="${homeProducts}" var="homeProduct">
       <c:if test="${homeProduct.barNumber==202}">
 	<div class="col-sm-3">
