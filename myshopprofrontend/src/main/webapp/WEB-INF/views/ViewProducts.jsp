@@ -19,7 +19,11 @@ app.controller('myCtrl', function($scope) {
 box-shadow:0 0 10px grey;}
 </style>
 <%@include file="header.jsp" %>
+<br/>
+<center><h1><b>${catName}</b></h1>
+<div style="width:600px;border:2px solid red"></div></center>
 <div class="container"> 
+
 <div class="col-sm-3" ng-repeat="product in products | filter:searchProduct">
     <div class="thumbnail">
       <a href="productDetails?proid={{product.pro_id}}">

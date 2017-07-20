@@ -43,7 +43,7 @@ public class CartController {
 	}
 	@RequestMapping("/addToCart")
 	public ModelAndView addToCart(@RequestParam("proid") int proId,HttpSession session)
-	{	ModelAndView m=new ModelAndView("Cart");
+	{	ModelAndView m=new ModelAndView("redirect:showCart");
 		boolean notexist=true;
 		String username=(String)session.getAttribute("username");
 		UserDetails userDetails=userDetailsDAO.getUserDetails(username);
@@ -70,13 +70,11 @@ public class CartController {
 		cart.setPrice(product.getPro_price());
 		cartDAO.insertOrUpdateCart(cart);
 		}
-		cart_list=cartDAO.getCartItems(username);
-		m.addObject("cartItems", cart_list);
 		return m;
 	}
 	@RequestMapping("/updateCart")
-	public ModelAndView updateCart(@RequestParam("id") int cart_item_id,@RequestParam("action") String action,HttpSession session)
-	{	ModelAndView m=new ModelAndView("Cart");
+	public ModelAndView updateCart(@RequestParam("id") int cart_item_id,@RequestParam("action") String action)
+	{	ModelAndView m=new ModelAndView("redirect:showCart");
 		Cart cart=cartDAO.getCartItem(cart_item_id);
 		int quantity=cart.getQuantity();
 		if(action.equals("increase"))
@@ -84,19 +82,13 @@ public class CartController {
 		else if(quantity!=1&&action.equals("decrease"))
 			cart.setQuantity(quantity-1);
 		cartDAO.insertOrUpdateCart(cart);
-		String username=(String)session.getAttribute("username");
-		List<Cart> cart_list=cartDAO.getCartItems(username);
-		m.addObject("cartItems", cart_list);
 		return m;
 	}
 	@RequestMapping("/deleteCartItem")
-	public ModelAndView deleteCartItem(@RequestParam("id") int cart_item_id,HttpSession session)
-	{	ModelAndView m=new ModelAndView("Cart");
+	public ModelAndView deleteCartItem(@RequestParam("id") int cart_item_id)
+	{	ModelAndView m=new ModelAndView("redirect:showCart");
 		Cart cart=cartDAO.getCartItem(cart_item_id);
 		cartDAO.deleteCartItem(cart);
-		String username=(String)session.getAttribute("username");
-		List<Cart> cart_list=cartDAO.getCartItems(username);
-		m.addObject("cartItems", cart_list);
 		return m;
 	}	
 	@RequestMapping("/BuyNow")

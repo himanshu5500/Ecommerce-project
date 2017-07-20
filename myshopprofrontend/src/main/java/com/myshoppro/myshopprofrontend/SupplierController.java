@@ -36,15 +36,11 @@ public class SupplierController {
 	
 	@RequestMapping(value="/addSupplier",method=RequestMethod.POST)
 	public ModelAndView addSupplier(@RequestParam("name") String sup_name,@RequestParam("address") String sup_address){
-		ModelAndView m=new ModelAndView("Supplier");
+		ModelAndView m=new ModelAndView("redirect:Supplier");
 		Supplier supplier=new Supplier();
 		supplier.setSup_address(sup_address);
 		supplier.setSup_name(sup_name);
 		supplierDAO.insertOrUpdateSupplier(supplier);
-		List<Supplier> list=supplierDAO.getSupplierDetails();
-		m.addObject("supDetails",list);
-		boolean flag=false;
-		m.addObject("flag",flag);
 		return m;
 	}
 	
@@ -81,16 +77,12 @@ public class SupplierController {
 
 	@RequestMapping(value="/updateSupplier",method=RequestMethod.POST)
 	public ModelAndView update_Supplier(@RequestParam("supId") int supid,@RequestParam("name") String sup_name,@RequestParam("address") String sup_address){
-		ModelAndView m=new ModelAndView("Supplier");
+		ModelAndView m=new ModelAndView("redirect:Supplier");
 		Supplier supplier=new Supplier();
 		supplier.setSup_id(supid);
 		supplier.setSup_address(sup_address);
 		supplier.setSup_name(sup_name);
 		supplierDAO.insertOrUpdateSupplier(supplier);
-		List<Supplier> list=supplierDAO.getSupplierDetails();
-		m.addObject("supDetails",list);
-		boolean flag=false;
-		m.addObject("flag",flag);
 		return m;
 	}
 	@ModelAttribute

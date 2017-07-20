@@ -23,7 +23,7 @@ public class OrderDetailsTestCase {
 				billing.setPincode(000000);
 				billing.setPay_mode("COD");
 				shipping.setName("User");
-				shipping.setMobile(0000000000);
+				shipping.setMobile("0000000000");
 				shipping.setHouse_locality("a11");
 				shipping.setCity("delhi");
 				shipping.setState("new delhi");

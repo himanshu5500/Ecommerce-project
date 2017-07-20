@@ -22,7 +22,6 @@
 						<label class="control-label col-sm-5 myBoldFont" for="supName">Select Product</label>
 <div class="col-sm-7">
 <form:select path="product.pro_id" class="form-control" id="supName">
-<form:option value="0" label="----------- Select Product -----------"/>
 <form:options items="${prolist}"/>
 </form:select>
 </div></div>

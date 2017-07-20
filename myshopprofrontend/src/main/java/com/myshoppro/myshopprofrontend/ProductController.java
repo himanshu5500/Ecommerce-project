@@ -44,7 +44,7 @@ public class ProductController {
 	
 	@RequestMapping(value="/addProduct",method=RequestMethod.POST)
 	public ModelAndView addProduct(@ModelAttribute("product") Product product,@RequestParam("pro_image") MultipartFile image)
-	{	ModelAndView m=new ModelAndView("Product");
+	{	ModelAndView m=new ModelAndView("redirect:Product");
 		productDAO.insertOrUpdateProduct(product);
 		String imgpath="C:\\Users\\MY LAPY\\Documents\\Project\\myshopprofrontend\\src\\main\\webapp\\resources\\images\\";
 		String file_info=imgpath+product.getPro_id()+".jpg";
@@ -61,24 +61,14 @@ public class ProductController {
 				System.out.println("Exception");
 			}
 		}
-		List<Product> pro_list=productDAO.getProductDetails();
-		m.addObject("suplist",this.getSupList());
-		m.addObject("catlist",this.getCatList());
-		m.addObject("proDetails",pro_list);
-		m.addObject("flag",false);
 		return m;
 	}
 	
 	@RequestMapping("/deleteProduct")
 	public ModelAndView deleteProduct(@RequestParam("proId") int proId,@ModelAttribute("product") Product product1)
-	{	ModelAndView m=new ModelAndView("Product");
+	{	ModelAndView m=new ModelAndView("redirect:Product");
 		Product product=productDAO.getProduct(proId);
 		productDAO.deleteProduct(product);
-		List<Product> pro_list=productDAO.getProductDetails();
-		m.addObject("suplist",this.getSupList());
-		m.addObject("catlist",this.getCatList());
-		m.addObject("proDetails",pro_list);
-		m.addObject("flag",false);
 		return m;
 	}
 

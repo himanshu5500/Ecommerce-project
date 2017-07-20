@@ -41,6 +41,11 @@ public class PageController {
 		return "header";
 	}
 	
+	@RequestMapping("403Error")
+	public String Error(){
+		return "403";
+	}
+	
 	@RequestMapping("/homeProducts")
 	public ModelAndView homeProduct(@ModelAttribute("homeProduct") HomeProducts homeProduct){
 		ModelAndView m=new ModelAndView("HomeProducts");

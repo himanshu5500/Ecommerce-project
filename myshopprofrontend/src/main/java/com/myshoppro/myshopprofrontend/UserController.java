@@ -74,7 +74,7 @@ public class UserController {
 	
 
 	@RequestMapping(value="/addUserDetails",method=RequestMethod.POST)
-	public ModelAndView addProduct(@RequestParam Map<String,String> user)
+	public ModelAndView addProduct(@RequestParam Map<String,String> user,@RequestParam("mobile") int mobile)
 	{	ModelAndView m=new ModelAndView();
 		UserDetails userDetails=userDetailsDAO.getUserDetails(user.get("username"));
 		if(userDetails!=null){
@@ -88,7 +88,7 @@ public class UserController {
 		userDetails.setEmail(user.get("email"));
 		userDetails.setUsername(user.get("username"));
 		userDetails.setPassword(user.get("password"));
-		userDetails.setMobile(Integer.parseInt(user.get("mobile")));
+		userDetails.setMobile(mobile);
 		userDetails.setEnabled(true);
 		userDetails.setRole("ROLE_USER");
 		userDetails.setCart_id(100);
@@ -126,7 +126,7 @@ public class UserController {
 	}
 	@RequestMapping(value="/updateUser",method=RequestMethod.POST)
 	public ModelAndView updateUser(@RequestParam Map<String,String> user,HttpSession session)
-	{	ModelAndView m=new ModelAndView("MyAccount");
+	{	ModelAndView m=new ModelAndView("redirect:myAccount");
 		String username=(String)session.getAttribute("username");
 		UserDetails userDetails=userDetailsDAO.getUserDetails(username);
 		if(user.get("full_name")!=null)
@@ -138,8 +138,6 @@ public class UserController {
 		if(user.get("mobile")!=null)
 		userDetails.setMobile(Integer.parseInt(user.get("mobile")));	
 		userDetailsDAO.insertOrUpdateUserDetails(userDetails);
-		userDetails=userDetailsDAO.getUserDetails(username);	
-		m.addObject("user",userDetails);
 		return m;
 	}
 

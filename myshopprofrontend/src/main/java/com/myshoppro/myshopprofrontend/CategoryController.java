@@ -30,16 +30,12 @@ public class CategoryController {
 	
 	@RequestMapping(value="/addCategory",method=RequestMethod.POST)
 	public ModelAndView addCategory(@RequestParam("name") String cat_name,@RequestParam("desc") String cat_desc,@RequestParam("home_cat") String home_cat){
-		ModelAndView m=new ModelAndView("Category");
+		ModelAndView m=new ModelAndView("redirect:Category");
 		Category category=new Category();
 		category.setHome_cat(home_cat);
 		category.setCat_desc(cat_desc);
 		category.setCat_name(cat_name);
 		categoryDAO.insertOrUpdateCategory(category);
-		List<Category> list=categoryDAO.getCategoryDetails();
-		m.addObject("catDetails",list);
-		boolean flag=false;
-		m.addObject("flag",flag);
 		return m;
 	}
 	
@@ -75,17 +71,13 @@ public class CategoryController {
 
 	@RequestMapping(value="/updateCategory",method=RequestMethod.POST)
 	public ModelAndView update_Category(@RequestParam("catId") int catid,@RequestParam("home_cat") String home_cat,@RequestParam("name") String cat_name,@RequestParam("desc") String cat_desc){
-		ModelAndView m=new ModelAndView("Category");
+		ModelAndView m=new ModelAndView("redirect:Category");
 		Category category=new Category();
 		category.setCat_id(catid);
 		category.setHome_cat(home_cat);
 		category.setCat_desc(cat_desc);
 		category.setCat_name(cat_name);
 		categoryDAO.insertOrUpdateCategory(category);
-		List<Category> list=categoryDAO.getCategoryDetails();
-		m.addObject("catDetails",list);
-		boolean flag=false;
-		m.addObject("flag",flag);
 		return m;
 	}
 	

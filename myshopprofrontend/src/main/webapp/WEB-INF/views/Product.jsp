@@ -30,8 +30,8 @@
 <div class="form-group">
 <label class="control-label col-sm-5 myBoldFont" for="catName">Category</label>
 <div class="col-sm-7">
-<form:select path="category.cat_id" id="catName" class="form-control">
-<form:option value="0" label="----------- Select Category -----------" disabled="true"/>
+<form:select path="category.cat_id" id="catName" class="form-control" required="required">
+<option value="" label="----------- Select Category -----------" disabled="true" selected/>
 <form:options items="${catlist}"/>
 </form:select></div></div>
 <div class="form-group">
@@ -47,7 +47,10 @@
 <div class="form-group">
 <label class="control-label col-sm-5 myBoldFont" for="proImage">Upload image</label>
 <div class="col-sm-7">
-<form:input type="file" path="pro_image" class="form-control" id="proImage" required="required"/>
+<c:if test="${flag}"><form:input type="file" path="pro_image" class="form-control" id="proImage"/>
+</c:if>
+<c:if test="${!flag}"><form:input type="file" path="pro_image" class="form-control" id="proImage" required="required"/>
+</c:if>
 </div></div>
 <div class="form-group">
 <label class="control-label col-sm-5 myBoldFont" for="proPrice">Product Price</label>
@@ -61,8 +64,8 @@
 </div></div>
 <div class="form-group"><label class="control-label col-sm-5 myBoldFont" for="supName">Supplier</label>
 <div class="col-sm-7">
-<form:select path="supplier.sup_id" class="form-control" id="supName">
-<form:option value="0" label="----------- Select Supplier -----------" disabled="true"/>
+<form:select path="supplier.sup_id" class="form-control" id="supName" required="required">
+<option value="" label="----------- Select Category -----------" disabled="true" selected/>
 <form:options items="${suplist}"/>
 </form:select>
 </div></div>

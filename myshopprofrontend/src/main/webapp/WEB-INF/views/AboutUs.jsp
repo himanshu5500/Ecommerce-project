@@ -31,15 +31,15 @@ box-shadow:0 0 10px grey;
 <div class="row"><center>
 <div class="col-sm-4" >
 <div class="thumbnail contactBox" style="background-color:black;padding-top:2em;">
-<span class="glyphicon glyphicon-map-marker" style="font-size:80px"></span><br/> <span style="font-size:20px">New Delhi, India</span>
+<span class="glyphicon glyphicon-map-marker" style="font-size:6em"></span><br/> <span style="font-size:1.45em">New Delhi, India</span>
 </div></div>
 <div class="col-sm-4" >
 <div class="thumbnail contactBox" style="background-color:black;padding-top:2em;">
-<span class="glyphicon glyphicon-envelope" style="font-size:80px"></span><br/> <span style="font-size:20px">myshoppro@example.com</span>
+<span class="glyphicon glyphicon-envelope" style="font-size:6em"></span><br/> <span style="font-size:1.45em">myshoppro@example.com</span>
 </div></div>
 <div class="col-sm-4" >
 <div class="thumbnail contactBox" style="background-color:black;padding-top:2em;">
-<i class="fa fa-phone" style="color:white;font-size:80px"></i> <br/><span style="font-size:20px">+1234 567 890</span>
+<i class="fa fa-phone" style="color:white;font-size:6em"></i> <br/><span style="font-size:1.45em">+1234 567 890</span>
 </div></center></div>
 </div>
 <%@include file="/WEB-INF/views/Footer.jsp"%>			 

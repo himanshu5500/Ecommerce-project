@@ -11,8 +11,7 @@ public class Shipping implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
-	private String house_locality,city,state,name;
-	private int mobile;
+	private String house_locality,city,state,name,mobile;
 	private int pincode;
 	public int getId() {
 		return id;
@@ -44,10 +43,10 @@ public class Shipping implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getMobile() {
+	public String getMobile() {
 		return mobile;
 	}
-	public void setMobile(int mobile) {
+	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
 	public int getPincode() {
