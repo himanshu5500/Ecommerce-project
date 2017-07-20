@@ -54,7 +54,7 @@ border:0;background: white; width:400px
 	<div class="panel-body table-responsive">
 				<table class="table"><form id="userTable" action="updateUser" method="post">
 				<tr><th>Name</th><td>
-				<input type="text" name="full_name" id="nameField" value="${user.full_name}" disabled required maxlength="25"/></td>
+				<input type="text" name="full_name" id="nameField" value="${user.full_name}" disabled required maxlength="25" pattern="[A-Za-z]+" title="Enter a valid name"/></td>
 				<td><span class="glyphicon glyphicon-edit" id="nameBtn"></span><button type="submit" id="nameSave" class="btn btn-primary">Save</button></td></tr>
 				<tr><th>Email ID</th><td>
 				<input type="email" name="email" id="emailField" value="${user.email}" disabled required title="Enter a valid email address"/></td>

@@ -96,7 +96,7 @@ public class CartController {
 	{	ModelAndView m=new ModelAndView("redirect:checkOut");
 		boolean notexist=true;
 		String username=(String)session.getAttribute("username");
-		
+		UserDetails userDetails=userDetailsDAO.getUserDetails(username);
 		List<Cart> cart_list=cartDAO.getCartItems(username);
 		for(Cart cart:cart_list)
 			if(cart.getProd_id()==proId){
@@ -105,19 +105,24 @@ public class CartController {
 				cartDAO.insertOrUpdateCart(cart);
 			}
 		if(notexist){
-		Cart cart=new Cart();
-		cart.setCart_id(1001);
-		cart.setQuantity(1);
-		cart.setStatus("N");
-		cart.setUsername(username);
-		cart.setProd_id(proId);
-		Product product=productDAO.getProduct(proId);
-		cart.setProd_name(product.getPro_name());
-		cart.setPrice(product.getPro_price());
-		cartDAO.insertOrUpdateCart(cart);
+			Cart cart=new Cart();
+			if(cart_list.size()==0){
+				userDetails.setCart_id(userDetails.getCart_id()+1);
+				userDetailsDAO.insertOrUpdateUserDetails(userDetails);
+			}
+			cart.setCart_id(userDetails.getCart_id());
+			cart.setQuantity(1);
+			cart.setStatus("N");
+			cart.setUsername(username);
+			cart.setProd_id(proId);
+			Product product=productDAO.getProduct(proId);
+			cart.setProd_name(product.getPro_name());
+			cart.setPrice(product.getPro_price());
+			cartDAO.insertOrUpdateCart(cart);
 		}
 		return m;
 	}
+	
 	@RequestMapping("/checkOut")
 	public ModelAndView checkOut(HttpSession session){
 		ModelAndView m=new ModelAndView("OrderConfirm");
