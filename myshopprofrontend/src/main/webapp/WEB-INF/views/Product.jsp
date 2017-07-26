@@ -26,7 +26,7 @@
 					    	<c:if test="${!flag}">Add Product</c:if>
 					    </div>
 						<div class="modal-body" style="padding:40px 50px;">
-<form:form action="addProduct" modelAttribute="product" class="form-horizontal" enctype="multipart/form-data">
+<form:form action="addProduct" modelAttribute="product" class="form-horizontal" enctype="multipart/form-data" onsubmit="return valid()">
 <div class="form-group">
 <label class="control-label col-sm-5 myBoldFont" for="catName">Category</label>
 <div class="col-sm-7">
@@ -49,7 +49,7 @@
 <div class="col-sm-7">
 <c:if test="${flag}"><form:input type="file" path="pro_image" class="form-control" id="proImage"/>
 </c:if>
-<c:if test="${!flag}"><form:input type="file" path="pro_image" class="form-control" id="proImage" required="required"/>
+<c:if test="${!flag}"><form:input type="file" path="pro_image" class="form-control" id="proImage" required="required"/><span id="imgWarning" style="color:red"></span>
 </c:if>
 </div></div>
 <div class="form-group">
@@ -97,6 +97,21 @@
 </div>
 </div>
 </div>
+<script>
+var x;
+$("#proImage").change(function(){
+		x=this.files[0].size;
+});
+function valid(){
+	if(x>307200){
+		$("#imgWarning").text("File size must be under 300KB !!!!!");
+	return false;	
+	}
+		else{
+		return true;
+		}
+}
+</script>
 <%@include file="/WEB-INF/views/Footer.jsp"%>
 </body>
 </html>

@@ -5,7 +5,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link  rel="stylesheet" href='<c:url value="/resources/css/style.css"/>'/>
-<link  rel="icon" href="<c:url value="/resources/css/icon.jpg"/>"/>
+<link rel="icon" href="resources/images/icon.jpg"/>
 </head>
 <body>
 <div class="container-fluid" style="background-color:#0d59af;color:#fff;height:120px; padding-top:25px;font-family: Forte">

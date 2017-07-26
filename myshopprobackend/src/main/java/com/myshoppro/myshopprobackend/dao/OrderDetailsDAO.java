@@ -42,4 +42,19 @@ public class OrderDetailsDAO {
 		return orderDetails;
 	}
 	
+	@Transactional
+	public void deleteOrderDetails(String username)
+	{
+		Session session=sessionFactory.openSession();
+		Query q=session.createQuery("from OrderDetails where username=:username");
+		q.setParameter("username", username);
+		List<OrderDetails> list=q.list();
+		session.close();
+		for(OrderDetails item:list){
+		sessionFactory.getCurrentSession().delete(item.getBilling());
+		sessionFactory.getCurrentSession().delete(item.getShipping());
+		sessionFactory.getCurrentSession().delete(item);		
+		}
+	}
+	
 }

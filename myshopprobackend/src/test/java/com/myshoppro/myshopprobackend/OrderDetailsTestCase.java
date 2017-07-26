@@ -42,6 +42,8 @@ public class OrderDetailsTestCase {
 				System.out.println("Order Details retrieve");
 				System.out.println("Order Id = "+orderDetails.getOrder_id());
 				
+				orderDetailsDAO.deleteOrderDetails("TestUser");
+				System.out.println("Order Details Deleted");
 				context.close();
 	}
 }

@@ -73,10 +73,15 @@ border:0;background: white; width:400px
 					<b>${info}</b>
 					</td>
 					</tr>
+					<c:if test='<%=(String)session.getAttribute("user")!=null && ((String)session.getAttribute("user")).equals("user")%>'>
+					<tr><th>Account</th>
+					<td colspan="2">
+					<a href="deactivateAccount" class="btn btn-danger btn-sm myBoldFont" id="myBtn">Deactivate Account</a> 
+					</td>
+					</tr></c:if>
 				</table>
 			</div>
 </div></div></div>
-
 <%@include file="/WEB-INF/views/Footer.jsp"%>
 </body>
 </html>

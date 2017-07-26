@@ -49,7 +49,7 @@
 								<label class="control-label col-sm-5 myBoldFont" for="homeCat">Home Category</label>
 								<div class="col-sm-7">
 								<select name="home_cat" id="homeCat" class="form-control" required>
-								<c:if test="${!flag}"><option value="none" label="-------- Select Home Category --------"/></c:if>
+								<c:if test="${!flag}"><option value="" label="-------- Select Home Category --------"/></c:if>
 								<c:if test="${flag}"><option value="${category.home_cat}">${category.home_cat}</option></c:if>
 								<option value="Mobiles">Mobiles</option>
 								<option value="Laptops">Laptops</option>

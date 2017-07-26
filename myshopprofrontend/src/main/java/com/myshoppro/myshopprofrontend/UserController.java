@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.myshoppro.myshopprobackend.dao.CartDAO;
 import com.myshoppro.myshopprobackend.dao.CategoryDAO;
 import com.myshoppro.myshopprobackend.dao.OrderDetailsDAO;
 import com.myshoppro.myshopprobackend.dao.UserDetailsDAO;
@@ -33,6 +34,8 @@ public class UserController {
 	CategoryDAO categoryDAO;
 	@Autowired
 	OrderDetailsDAO orderDetailsDAO;
+	@Autowired
+	CartDAO cartDAO;
 	
 	@RequestMapping("login")
 	public ModelAndView login(@RequestParam(value="id",required=false) String id)
@@ -42,7 +45,8 @@ public class UserController {
 			m.addObject("msg","Invalid Username or Password");
 		else if(id.equals("2"))
 			m.addObject("msg","You've been logged out");
-		
+		else if(id.equals("3"))
+			m.addObject("msg","Your Account has been Deactivated");		
 		}
 		return m;	
 	}
@@ -77,7 +81,7 @@ public class UserController {
 	public ModelAndView addProduct(@RequestParam Map<String,String> user,@RequestParam("mobile") int mobile)
 	{	ModelAndView m=new ModelAndView();
 		UserDetails userDetails=userDetailsDAO.getUserDetails(user.get("username"));
-		if(userDetails!=null){
+		if(userDetails!=null&&userDetails.isEnabled()==true){
 		m.addObject("userExist","Username Already Exist");
 		m.setViewName("Register");
 		}
@@ -140,7 +144,27 @@ public class UserController {
 		userDetailsDAO.insertOrUpdateUserDetails(userDetails);
 		return m;
 	}
-
+	
+	@RequestMapping(value="/deactivateAccount")
+	public String deactivateAccount(HttpSession session)
+	{	String user=(String)session.getAttribute("username");
+		UserDetails userDetails=userDetailsDAO.getUserDetails(user);	
+		userDetails.setEnabled(false);
+		userDetailsDAO.insertOrUpdateUserDetails(userDetails);
+		List<Cart> cartList=cartDAO.getCartItems(user);
+		if(!cartList.isEmpty())
+			for(Cart cart:cartList)
+				cartDAO.deleteCartItem(cart);
+		cartList=cartDAO.getPurchasedCartItems(user);
+		if(!cartList.isEmpty())
+			for(Cart cart:cartList)
+				cartDAO.deleteCartItem(cart);
+		orderDetailsDAO.deleteOrderDetails(user);
+		session.invalidate();
+		return "redirect:login?id=3";
+	}
+	
+	
 	@ModelAttribute
 	public void homeCatDetails(Model m){
 		List<Category> list=categoryDAO.getCategoryDetails();
