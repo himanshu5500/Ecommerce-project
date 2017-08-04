@@ -5,12 +5,12 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link  rel="stylesheet" href='<c:url value="/resources/css/style.css"/>'/>
-<link rel="icon" href="resources/images/icon.jpg"/>
+<link rel="icon" href="resources/images/logo.png"/>
 </head>
 <body>
 <div class="container-fluid" style="background-color:#0d59af;color:#fff;height:120px; padding-top:25px;font-family: Forte">
  <div class="text-center" style="margin-top: -31px;margin-bottom:1px;">
- <img src="<c:url value="/resources/images/logo.jpg"/>" style="width:100px;margin-top:-20px"/>
+ <img src="<c:url value="/resources/images/logo.png"/>" style="width:100px;margin-top:-20px"/>
  <span style="font-size:55px;padding-left: 10px;">MYSHO<span style="font-size:75px;">P</span>RO</span>
 </div></div>
 <nav class="navbar navbar-inverse" style="margin-bottom:0px;border-radius:0px;">
@@ -26,14 +26,14 @@
     
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Mobiles
+        <li class="dropdown"><a>Mobiles
         <span class="caret"></span></a>
         <ul class="dropdown-menu"><c:forEach items="${catDetails}" var="homeCat">
         	<c:if test="${homeCat.home_cat=='Mobiles'}">
         	<li><a href="viewProducts?id=${homeCat.cat_id}">${homeCat.cat_name}</a></li>
         	</c:if></c:forEach>
         </ul></li>
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Laptops
+        <li class="dropdown"><a>Laptops
         <span class="caret"></span></a>
         <ul class="dropdown-menu"><c:forEach items="${catDetails}" var="homeCat">
         <c:if test="${homeCat.home_cat=='Laptops'}">
@@ -41,7 +41,7 @@
         	</c:if>
         	</c:forEach>
         </ul></li>
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Computer Accessories
+        <li class="dropdown"><a>Computer Accessories
         <span class="caret"></span></a>
         <ul class="dropdown-menu"><c:forEach items="${catDetails}" var="homeCat">
         <c:if test="${homeCat.home_cat=='Computer Accessories'}">
@@ -49,7 +49,7 @@
         	</c:if>
         	</c:forEach>
         </ul></li> 
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Televisions
+        <li class="dropdown"><a>Televisions
         <span class="caret"></span></a>
         <ul class="dropdown-menu"><c:forEach items="${catDetails}" var="homeCat">
         <c:if test="${homeCat.home_cat=='Televisions'}">
@@ -67,7 +67,7 @@
       </li>
       <c:if test='<%=(String)session.getAttribute("user")==null%>'>
       <li class="dropdown">
-      <a  class="dropdown-toggle" data-toggle="dropdown" href="#">Admin Operations <span class="caret"></span>
+      <a>Admin Operations <span class="caret"></span>
       <ul class="dropdown-menu">
       <li><a href="<c:url value="/Category"/>">Manage Category</a></li>
       <li><a href="<c:url value="/Product"/>">Manage Products</a></li>
@@ -76,7 +76,7 @@
       </ul></a>
       </li></c:if>
       <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+      <a>
       <span class="img-circle"><%=session.getAttribute("usertitle")%></span> <%=session.getAttribute("username")%>
        <span class="caret"></span></a>
         <ul class="dropdown-menu">

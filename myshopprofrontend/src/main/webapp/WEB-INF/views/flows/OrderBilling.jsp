@@ -16,9 +16,9 @@
 <div class="container">
 <table class="table"><tr><th colspan="2">
 <div class="list-group-item list-group-item-info">
-<center><h3><b>Billing Details</b></h3></center></div></th></tr>
+<center><h2><b>Billing Details</b></h2></center></div></th></tr>
 				<form:form modelAttribute="orderDetails" action="${flowExecutionUrl}&_eventId_event2">
-				<tr><th class="text-center" colspan="2">Billing Address</th></tr>
+				<tr><th class="text-center" colspan="2"><h3><b>Billing Address</b></h3></th></tr>
 				<tr><th>House Locality</th><td>
 				<form:input path="billing.house_locality" class="form-control" required="required"/></td>
 				</tr>
@@ -31,7 +31,7 @@
 				<tr><th>Pincode</th><td>
 				<form:input path="billing.pincode" class="form-control" pattern="[0-9]{6}" title="Pincode must be six digit long" maxlength="6"/></td>
 				</tr>
-				<tr><th class="text-center" colspan="2">Payment</th></tr>
+				<tr><th class="text-center" colspan="2"><h3><b>Payment</b></h3></th></tr>
 				<tr><th>Payment Mode</th><td>&nbsp;
 				<label class="radio-inline"><form:radiobutton path="billing.pay_mode" value="Credit Card" required="true"/>Credit Card</label>
 				<label class="radio-inline"><form:radiobutton path="billing.pay_mode" value="Internet Banking"/>Internet Banking</label>

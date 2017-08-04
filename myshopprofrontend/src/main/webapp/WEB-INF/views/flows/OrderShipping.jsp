@@ -18,7 +18,7 @@
 <div id="deliveryDetails" class="table-responsive">
 <table class="table"><tr><th colspan="2">
 <div class="list-group-item list-group-item-info">
-<center><h3><b>Delivery Details</b></h3></center></div></th></tr>
+<center><h2><b>Delivery Details</b></h2></center></div></th></tr>
 				<form:form action="${flowExecutionUrl}&_eventId_event1" modelAttribute="orderDetails">
 				<tr><th>Deliver To</th><td>
 				<form:input path="shipping.name" class="form-control" required="required" pattern="[A-Za-z]+" title="Enter a valid name"/></td>
@@ -26,7 +26,7 @@
 				<tr><th>Mobile Number</th><td>
 				<form:input path="shipping.mobile" class="form-control" required="required" pattern="[0-9]{10}" title="Enter a 10 digit mobile number" maxlength="10"/></td>
 				</tr>
-				<tr><th class="text-center" colspan="2">Shipping Address</th></tr>
+				<tr><th class="text-center" colspan="2"><h3><b>Shipping Address</b></h3></th></tr>
 				<tr><th>House Locality</th><td>
 				<form:input path="shipping.house_locality" class="form-control" required="required"/></td>
 				</tr>

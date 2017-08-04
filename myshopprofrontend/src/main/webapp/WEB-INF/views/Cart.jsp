@@ -43,13 +43,13 @@
 </c:forEach><tr><td colspan="3">
 <div class="row" style="padding:2em;">
 <c:if test="${cartSize==0}">
-<a href="index" class="btn btn-success btn-block">Continue Shopping....</a>
+<a href="index" class="btn btn-success btn-block myBoldFont">Continue Shopping....</a>
 </c:if>
 <c:if test="${cartSize!=0}"><div class="col-sm-offset-2 col-sm-3">
-<a href="index" class="btn btn-success btn-block">Continue Shopping....</a>
+<a href="index" class="btn btn-success btn-block myBoldFont">Continue Shopping....</a>
 </div><div class="col-sm-2"><span>&nbsp;</span></div>
 <div class="col-sm-3">
-<a href="checkOut" class="btn btn-success btn-block">Check Out</a>
+<a href="checkOut" class="btn btn-success btn-block myBoldFont">Check Out</a>
 </div></c:if>
 </div></td></tr></table></div>
 <%@include file="/WEB-INF/views/Footer.jsp"%>
