@@ -24,6 +24,9 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 		<intercept-url pattern="/addCategory" access="hasRole('ROLE_ADMIN')"/>
 		<intercept-url pattern="/updateCategory**" access="hasRole('ROLE_ADMIN')"/>
 		<intercept-url pattern="/deleteCategory" access="hasRole('ROLE_ADMIN')"/>
+		<intercept-url pattern="/homeProducts" access="hasRole('ROLE_ADMIN')"/>
+		<intercept-url pattern="/updateHomeProducts" access="hasRole('ROLE_ADMIN')"/>
+		<intercept-url pattern="/updateHomeProduct" access="hasRole('ROLE_ADMIN')"/>
 		
 		
 		
@@ -38,6 +41,7 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
 		<intercept-url pattern="/checkOut" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')"/>
 		<intercept-url pattern="/myOrders" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')"/>
 		<intercept-url pattern="/placeOrder" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')"/>
+		<intercept-url pattern="/Details" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')"/>
 			
 		<!-- access denied page -->
 		<access-denied-handler error-page="/403Error" />

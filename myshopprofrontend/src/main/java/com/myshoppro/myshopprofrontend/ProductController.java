@@ -48,7 +48,6 @@ public class ProductController {
 		productDAO.insertOrUpdateProduct(product);
 		String imgpath="C:\\Users\\MY LAPY\\Documents\\Project\\myshopprofrontend\\src\\main\\webapp\\resources\\images\\";
 		String file_info=imgpath+product.getPro_id()+".jpg";
-		System.out.println(file_info);
 		File f=new File(file_info);
 		if(!image.isEmpty()){
 			try{
@@ -68,6 +67,9 @@ public class ProductController {
 	public ModelAndView deleteProduct(@RequestParam("proId") int proId,@ModelAttribute("product") Product product1)
 	{	ModelAndView m=new ModelAndView("redirect:Product");
 		Product product=productDAO.getProduct(proId);
+		String file_info="C:\\Users\\MY LAPY\\Documents\\Project\\myshopprofrontend\\src\\main\\webapp\\resources\\images\\"+proId+".jpg";
+		File f=new File(file_info);
+		f.delete();
 		productDAO.deleteProduct(product);
 		return m;
 	}

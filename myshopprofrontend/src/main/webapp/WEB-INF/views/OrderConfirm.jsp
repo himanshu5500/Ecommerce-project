@@ -20,20 +20,20 @@
 
 
 <c:forEach items="${cartItems}" var="cartItem">
-<tr><td>
+<tr><td><div class="col-sm-4">
 <div class="thumbnail">
 <img src='<c:url value="/resources/images/${cartItem.prod_id}"/>.jpg' alt="${cartItem.prod_name}" style="height:100%;"/>
-</div></td><td>
+</div></div><div class="col-sm-8">
 	<h4>${cartItem.prod_name}</h4>
 	<h5>Quantity : ${cartItem.quantity}
-    </h5>
+    </h5></div>
 	</td>
 	<td><h4><i class="fa fa-inr"></i><b>${cartItem.price*cartItem.quantity}</b></h4>
   </td></tr>
 <br/>
 </c:forEach>
-<tr><th>Total Payable Amount</th><td colspan="2" align="right"><h3><i class="fa fa-inr"></i><b>${totalAmount}</b></h3></td></tr>
-<tr><td colspan="3">
+<tr><th>Total Payable Amount</th><td ><h3><i class="fa fa-inr"><b>${totalAmount}</b></i></h3></td></tr>
+<tr><td colspan="2">
 <div class="row">
 <div class="col-sm-offset-2 col-sm-3">
 <a href="showCart" class="btn btn-danger btn-block myBoldFont">Edit order</a>

@@ -2,11 +2,10 @@
 <div class="col-sm-3">
 				<h3>Information</h3>
 				<ul class="foot-info">
-					<li><a href="#">FAQ's</a></li>
+					<li><a href="aboutUs">FAQ's</a></li>
 					<li><a href="aboutUs">About Us</a></li>
 					<li><a href="viewProducts?id=4">Best Deals</a></li>
 					<li><a href="aboutUs">Services</a></li>
-					<li><a href="#">Short Codes</a></li>
 				</ul></div>
 				<div class="col-sm-3">
 				<h3>Top Category</h3>

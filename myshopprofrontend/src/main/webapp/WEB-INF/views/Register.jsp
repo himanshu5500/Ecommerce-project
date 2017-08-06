@@ -22,7 +22,7 @@
 							<h1>Sign Up</h1>
 							<form action="addUserDetails" method="post" class="form-horizontal">
 							<div class="from-style" id="name">
-							<input name="full_name" class="form-control" required="" maxlength="25" pattern="[A-Za-z]+" title="Enter a valid name"/>
+							<input name="full_name" class="form-control" required="" maxlength="25" pattern="[A-Za-z]+[ ]*[A-Za-z]*" title="Enter a valid name"/>
 							<label>Enter Name</label>
 							</div>
 							<div class="from-style" id="email">
@@ -38,7 +38,7 @@
 							<label>Create Username</label>
 							</div>
 							<div class="from-style" id="password">
-							<input type="password" name="password" class="form-control" required="" pattern="[A-za-z0-9]{8,}" title="Atleast have 8 characters, special characters are not allowed"/>
+							<input type="password" name="password" class="form-control" required="" pattern="[A-za-z0-9]{8,}" title="Atleast have 8 characters, special characters or spaces are not allowed"/>
 							<label>Create Password</label>
 							</div>
 							<div class="from-style" id="address">
