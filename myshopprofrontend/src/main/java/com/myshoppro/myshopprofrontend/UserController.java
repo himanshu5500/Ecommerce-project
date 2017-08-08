@@ -23,7 +23,6 @@ import com.myshoppro.myshopprobackend.dao.OrderDetailsDAO;
 import com.myshoppro.myshopprobackend.dao.UserDetailsDAO;
 import com.myshoppro.myshopprobackend.model.Cart;
 import com.myshoppro.myshopprobackend.model.Category;
-import com.myshoppro.myshopprobackend.model.OrderDetails;
 import com.myshoppro.myshopprobackend.model.UserDetails;
 
 @Controller

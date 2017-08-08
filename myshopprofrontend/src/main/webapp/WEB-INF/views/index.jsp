@@ -39,9 +39,8 @@ box-shadow:0 0 10px grey;}
   </div>
   <br/>
 
-<center><h1>Trending Products</h1>
-<div style="width:600px;border:2px solid red"></div></center>
-<br/>
+<center><h1>Trending Products</h1></center>
+<div class="col-sm-offset-3 col-sm-6" style="border:2px solid red"></div><br/>
 <div id="HomeACarousel" class="carousel slide" data-ride="carousel" data-interval="2400">
     <div class="carousel-inner">
     <div class="item active">
@@ -50,7 +49,7 @@ box-shadow:0 0 10px grey;}
       </c:if>
       <c:forEach items="${homeProducts}" var="homeProduct">
       <c:if test="${homeProduct.barNumber==101}">
-	<div class="col-sm-3">
+	<div class="col-sm-6 col-md-3">
     <div class="thumbnail">
       <a href="productDetails?proid=${homeProduct.product.pro_id}">
         <img src='<c:url value="/resources/images/${homeProduct.product.pro_id}"/>.jpg' alt="${homeProduct.product.pro_name}" style="height:60%;"/>
@@ -70,7 +69,7 @@ box-shadow:0 0 10px grey;}
       </c:if>
       <c:forEach items="${homeProducts}" var="homeProduct">
       <c:if test="${homeProduct.barNumber==102}">
-	<div class="col-sm-3">
+	<div class="col-sm-6 col-md-3">
     <div class="thumbnail">
       <a href="productDetails?proid=${homeProduct.product.pro_id}">
         <img src='<c:url value="/resources/images/${homeProduct.product.pro_id}"/>.jpg' alt="${homeProduct.product.pro_name}" style="height:60%;"/>
@@ -96,9 +95,8 @@ box-shadow:0 0 10px grey;}
   </div>
   </div>
   <br/><br/><br/>
-  <center><h1>New Launched Products</h1>
-  <div style="width:600px;border:2px solid red"></div></center>
-<br/>
+  <center><h1>New Launched Products</h1></center>
+<div class="col-sm-offset-3 col-sm-6" style="border:2px solid red"></div><br/>
 <div id="HomeBCarousel" class="carousel slide" data-ride="carousel" data-interval="2400">
     <div class="carousel-inner">
     <div class="item active">
@@ -107,7 +105,7 @@ box-shadow:0 0 10px grey;}
       </c:if>
       <c:forEach items="${homeProducts}" var="homeProduct">
       <c:if test="${homeProduct.barNumber==201}">
-	<div class="col-sm-3">
+	<div class="col-sm-6 col-md-3">
     <div class="thumbnail">
       <a href="productDetails?proid=${homeProduct.product.pro_id}">
         <img src='<c:url value="/resources/images/${homeProduct.product.pro_id}"/>.jpg' alt="${homeProduct.product.pro_name}" style="height:60%;"/>
@@ -127,7 +125,7 @@ box-shadow:0 0 10px grey;}
       </c:if>
       <c:forEach items="${homeProducts}" var="homeProduct">
       <c:if test="${homeProduct.barNumber==202}">
-	<div class="col-sm-3">
+	<div class="col-sm-6 col-md-3">
     <div class="thumbnail">
       <a href="productDetails?proid=${homeProduct.product.pro_id}">
         <img src='<c:url value="/resources/images/${homeProduct.product.pro_id}"/>.jpg' alt="${homeProduct.product.pro_name}" style="height:60%;"/>

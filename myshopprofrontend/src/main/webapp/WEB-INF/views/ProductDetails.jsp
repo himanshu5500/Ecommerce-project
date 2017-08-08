@@ -8,19 +8,25 @@
 <title>${product.pro_name}</title>
 <style>
 #proImg{
-    -webkit-transition: all 1s;
-    -moz-transition: all 1s;
-    -o-transition: all 1s;
-    -ms-transition: all 1s;
-    transition: all 1s;
     height:490px;
 }
-#proImg:HOVER{height:530px;
+#proImg img{
     -webkit-transition: all 1s;
     -moz-transition: all 1s;
     -o-transition: all 1s;
     -ms-transition: all 1s;
     transition: all 1s;
+    height:67%;
+}
+#proImg:HOVER img{height:72%;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -o-transition: all 1s;
+    -ms-transition: all 1s;
+    transition: all 1s;
+}
+.caption{
+bottom: 0;position:absolute;width:98%;
 }
 .proTitle{color:blue;}
 </style>
@@ -28,7 +34,7 @@
 <br/>
 <div class="container">
 <div class="col-sm-4 thumbnail" id="proImg">
-<img src='<c:url value="/resources/images/${product.pro_id}"/>.jpg' alt="${product.pro_name}" style="height:70%;"/>
+<img src='<c:url value="/resources/images/${product.pro_id}"/>.jpg' alt="${product.pro_name}" />
  <div class="caption">
           <a href="addToCart?proid=${product.pro_id}" class="btn btn-danger btn-block myBoldFont"><h4><span class="glyphicon glyphicon-shopping-cart"></span> Add To Cart</h4></a>
           <a href="BuyNow?proid=${product.pro_id}" class="btn btn-warning btn-block myBoldFont"><h4>Buy Now</h4></a>
