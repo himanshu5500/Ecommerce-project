@@ -77,7 +77,7 @@ public class UserController {
 	
 
 	@RequestMapping(value="/addUserDetails",method=RequestMethod.POST)
-	public ModelAndView addProduct(@RequestParam Map<String,String> user,@RequestParam("mobile") int mobile)
+	public ModelAndView addProduct(@RequestParam Map<String,String> user,@RequestParam("mobile") long mobile)
 	{	ModelAndView m=new ModelAndView();
 		UserDetails userDetails=userDetailsDAO.getUserDetails(user.get("username"));
 		if(userDetails!=null&&userDetails.isEnabled()==true){
@@ -139,7 +139,7 @@ public class UserController {
 		if(user.get("email")!=null)
 		userDetails.setEmail(user.get("email"));
 		if(user.get("mobile")!=null)
-		userDetails.setMobile(Integer.parseInt(user.get("mobile")));	
+		userDetails.setMobile(Long.parseLong(user.get("mobile")));	
 		userDetailsDAO.insertOrUpdateUserDetails(userDetails);
 		return m;
 	}

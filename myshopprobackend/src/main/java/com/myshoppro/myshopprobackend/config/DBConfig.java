@@ -30,7 +30,6 @@ public class DBConfig {
 		return datasource;
 	}
 	
-	@Autowired
 	@Bean(name="sessionfact")
 	public SessionFactory getSessionFactory(){
 		Properties prop = new Properties();
@@ -51,7 +50,6 @@ public class DBConfig {
 		return sessionFactBuilder.buildSessionFactory();
 	}
 
-	@Autowired
 	@Bean(name="txManager")
 	public HibernateTransactionManager getTransactionManager(){
 		HibernateTransactionManager txm = new HibernateTransactionManager(getSessionFactory());

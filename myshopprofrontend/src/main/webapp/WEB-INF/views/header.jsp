@@ -10,7 +10,7 @@
 <body>
 <div class="container-fluid" style="background-color:#0d59af;color:#fff;height:120px; padding-top:25px;font-family: Forte">
  <div class="text-center" style="margin-top: -31px;margin-bottom:1px;">
- <img src="<c:url value="/resources/images/logo.png"/>" style="width:100px;margin-top:-20px"/>
+ <img src="<c:url value="/resources/images/logo.png"/>" style="width:7vw;margin-top:-20px"/>
  <span style="font-size:55px;padding-left: 10px;">MYSHO<span style="font-size:75px;">P</span>RO</span>
 </div></div>
 <nav class="navbar navbar-inverse" style="margin-bottom:0px;border-radius:0px;">

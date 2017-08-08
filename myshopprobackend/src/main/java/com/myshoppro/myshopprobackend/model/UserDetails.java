@@ -9,7 +9,8 @@ public class UserDetails {
 	@Id
 	private String username; 
 	private String full_name,password,role,email,address;
-	private int mobile,cart_id;
+	private int cart_id;
+	private long mobile;
 	private boolean enabled;
 	
 	public int getCart_id() {
@@ -18,10 +19,10 @@ public class UserDetails {
 	public void setCart_id(int cart_id) {
 		this.cart_id = cart_id;
 	}
-	public int getMobile() {
+	public long getMobile() {
 		return mobile;
 	}
-	public void setMobile(int mobile) {
+	public void setMobile(long mobile) {
 		this.mobile = mobile;
 	}
 	public String getFull_name() {

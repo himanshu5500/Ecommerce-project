@@ -86,10 +86,10 @@
 		
 			<div class="panel-body table-responsive">
 				<table class="table table-hover myFont">
-					<tr><th>CatId</th><th>Category Name</th><th>Category Description</th><th>Operation</th></tr>
+					<tr><th>CatId</th><th>Category Name</th><th>Category Description</th><th>Home Category</th><th>Operation</th></tr>
 					<c:forEach items="${catDetails}" var="category">
 						<tr>
-							<td>${category.cat_id}</td><td>${category.cat_name}</td><td>${category.cat_desc}</td>
+							<td>${category.cat_id}</td><td>${category.cat_name}</td><td>${category.cat_desc}</td><td>${category.home_cat}</td>
 							<td>
 								<a href="<c:url value="updateCategory/${category.cat_id}"/>" id="update" class="btn btn-success myBoldFont">Update</a>
 								<a href="<c:url value="deleteCategory?catId=${category.cat_id}"/>" class="btn btn-danger myBoldFont">Delete</a>

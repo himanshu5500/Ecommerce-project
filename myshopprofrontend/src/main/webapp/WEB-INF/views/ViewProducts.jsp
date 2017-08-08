@@ -25,10 +25,10 @@ position:absolute;
 <center><h1><b>${catName}</b></h1></center>
 <div class="col-sm-offset-3 col-sm-6" style="border:2px solid red"></div>
 <div class="col-sm-1">&nbsp;</div>
-<div class="dropdown col-sm-2">
+<div class="dropdown col-sm-2" style="width:0">
     <button class="btn btn-success myBoldFont"><span class="fa fa-sort"></span> Sort
     </button>
-    <ul class="dropdown-menu">
+    <ul class="dropdown-menu" style="margin-top: -0.5px;">
       <li><a ng-click="orderByMe('pro_name')">Name</a></li>
       <li><a ng-click="orderByMe('+pro_price')">Price : Low to High</a></li>
       <li><a ng-click="orderByMe('-pro_price')">Price : High to Low</a></li>
